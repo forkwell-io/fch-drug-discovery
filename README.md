@@ -2,8 +2,7 @@
 
 [Fork](https://guides.github.com/activities/forking/) this repository to start participating!
 
-[![Join the chat at
-https://gitter.im/forkwell-io/fch-drug-discovery](https://badges.gitter.im/forkwell-io/fch-drug-discovery.svg)](https://gitter.im/forkwell-io/fch-drug-discovery?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![](https://img.shields.io/discord/692562848437764096.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/jFjbXqp)
 
 ## About
 
@@ -123,5 +122,5 @@ Feel free to open issues if you find anything lacking and we appreciate your fee
 ## Community
 
 Join the community!
-- [Gitter](https://gitter.im/forkwell-io/fch-drug-discovery)
+- [Discord](https://discord.gg/jFjbXqp)
 - [Forkwell Facebook Group](https://facebook.com/groups/forkwellcoronavirushack/)
