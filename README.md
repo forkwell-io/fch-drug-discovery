@@ -2,6 +2,9 @@
 
 [Fork](https://guides.github.com/activities/forking/) this repository to start participating!
 
+[![Join the chat at
+https://gitter.im/forkwell-io/fch-drug-discovery](https://badges.gitter.im/forkwell-io/fch-drug-discovery.svg)](https://gitter.im/forkwell-io/fch-drug-discovery?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 ## About
 
 Welcome to [Forkwell Coronavirus Hack](https://www.forkwell.io/events/forkwell-coronavirus-hack)!
@@ -60,8 +63,8 @@ git remote add upstream git@github.com:forkwell-io/fch-drug-discovery
 ...and start Hacking!!
 
 Once you are ready to submit, create a pull request from your
-[fork](https://guides.github.com/activities/forking/) to us and submit your submission form here,
-we'll take care of the rest.
+[fork](https://guides.github.com/activities/forking/) to us and include the link to your fork in
+your submission form that will be available on the 14th of April 2020.
 
 Please remember that your code will be publicly available, open-sourced licesed and free for the
 internet to use. Please ensure that you don't commit any sensitive information!
@@ -78,7 +81,7 @@ internet to use. Please ensure that you don't commit any sensitive information!
 
 *[slides](https://drive.google.com/drive/folders/1YsyUQQBAIxq_syXzE6wxSPaifAwmNxxF)*
 
-</br>
+---
 
 ### Databases
 
@@ -120,5 +123,5 @@ Feel free to open issues if you find anything lacking and we appreciate your fee
 ## Community
 
 Join the community!
-- [Forkwell Facebook Group](https://facebook.com/groups/forkwell.io)
-- [Forkwell Coronavirus Hack Microsoft Teams Channel](https://ms-teams-invite)
+- [Gitter](https://gitter.im/forkwell-io/fch-drug-discovery)
+- [Forkwell Facebook Group](https://facebook.com/groups/forkwellcoronavirushack/)
