@@ -23,8 +23,7 @@ Discovery** and eventually a place where you host all your submission artifacts 
 A few studies have shown that HIV antivirals offer promising results, but this is still an open
 field of discovery.
 
-Finding a new drug or validating an existing drug are both suitable approaches, we will be donating
-samples of the winning compound to the Ministry of Health Malaysia for further analysis.
+Finding a new drug or validating an existing drug are both suitable approaches.
 
 ## Goal
 
@@ -40,6 +39,11 @@ Find a candidate drug (ligand) with a high binding affinity with the COVID-19 ma
 You are required to submit a 15-minute presentation video of your report. However, to ensure the
 legitimacy of your submission, you are required to submit your project artifacts (code, datasets,
 documents) as a [fork](https://guides.github.com/activities/forking/) to this repository.
+
+A submission form will be available on the 14th of April 2020 for submission,
+please join our
+[facebook](https://facebook.com/groups/forkwellcoronavirushack/) group and
+[discord](https://discord.gg/jFjbXqp) channel to keep updated with latest changes.
 
 After creating your own [fork](https://guides.github.com/activities/forking/)
 of this repository, clone the repository:
