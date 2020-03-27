@@ -13,9 +13,10 @@ Discovery** and eventually a place where you host all your submission artifacts 
 
 ## Sponsors
 
-| [![Microsoft](https://user-images.githubusercontent.com/19421765/77505763-ff940400-6e9e-11ea-8c47-cafdf6b3b2d6.png)](https://microsoft.com/) | [![DigitalOcean](https://user-images.githubusercontent.com/19421765/77505756-f9058c80-6e9e-11ea-9968-01fcd23a3e6f.png)](https://do.co/forkwell) | [![Sunway iLabs](https://user-images.githubusercontent.com/19421765/77505745-f440d880-6e9e-11ea-99c8-087a37b9cd5b.png)](https://innovationlabs.sunway.edu.my/) |
-|----------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [![Runcloud](https://user-images.githubusercontent.com/19421765/77505775-06bb1200-6e9f-11ea-8c30-ae3547432a69.png)](https://runcloud.io/)    | [![AI Geeks](https://user-images.githubusercontent.com/19421765/77505782-0a4e9900-6e9f-11ea-9b68-e54697881f64.png)](http://aigeeks.org/)        |                                                                                                                                                                |
+| [![Microsoft](https://user-images.githubusercontent.com/19421765/77505763-ff940400-6e9e-11ea-8c47-cafdf6b3b2d6.png)](https://microsoft.com/)           | [![MDEC](https://uploads-ssl.webflow.com/5dedc0ed675ba87b09857f05/5e7b5a7ea804328ecaf8e5a2_mdec.png)](https://mdec.my/)                       | [![Runcloud](https://uploads-ssl.webflow.com/5dedc0ed675ba87b09857f05/5e79fb8c21fcad40f1a34b8a_runcloud.png)](https://runcloud.io/)                  |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [![AWS](https://uploads-ssl.webflow.com/5dedc0ed675ba87b09857f05/5e7b5a7ef803a29eed975378_aws.png)](https://aws.amazon.com/)                           | [![DigitlOcean](https://uploads-ssl.webflow.com/5dedc0ed675ba87b09857f05/5e79fb8b1de27906a0d0c3dc_digital-ocean.png)](https://do.co/forkwell) | [![Sunway iLabs](https://uploads-ssl.webflow.com/5dedc0ed675ba87b09857f05/5e79fb8c1de2795359d0c3de_ilab.png)](https://innovationlabs.sunway.edu.my/) |
+| [![CoronaTracker](https://uploads-ssl.webflow.com/5dedc0ed675ba87b09857f05/5e7c7a1afb4b4a4e49fa0357_coronatracker.png)](https://www.coronatracker.com) | [![LEAD](https://uploads-ssl.webflow.com/5dedc0ed675ba87b09857f05/5e7c7a1af1e7b76379787b82_lead.png)](https://www.thelead.io/)                | [![AI Geeks](https://uploads-ssl.webflow.com/5dedc0ed675ba87b09857f05/5e798a3fccd66c285759a635_ai-geeks.png)](https://aigeeks.net/)                  |
 
 ## Background
 
@@ -84,15 +85,17 @@ internet to use. Please ensure that you don't commit any sensitive information!
 
 ### Databases
 
-| Name                    | Link                                         |
-|-------------------------|----------------------------------------------|
-| COVID-19 main protease  | https://www.wwpdb.org/pdb?id=pdb_00006lu7    |
-| ChemBL                  | https://www.ebi.ac.uk/chembl/                |
-| DrugBank                | https://www.drugbank.ca/                     |
-| Folding@Home            | https://github.com/FoldingAtHome/coronavirus |
-| Formatted ZINC Database | https://github.com/molecularsets/moses       |
-| NextStrain              | https://nextstrain.org/                      |
-| ZINC Database           | https://zinc.docking.org/                    |
+| Name                                                                  | Link                                                                                                                 |
+|-----------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
+| CMap                                                                  | https://clue.io/cmap                                                                                                 |
+| COVID-19 main protease                                                | https://www.wwpdb.org/pdb?id=pdb_00006lu7                                                                            |
+| ChemBL                                                                | https://www.ebi.ac.uk/chembl/                                                                                        |
+| DrugBank                                                              | https://www.drugbank.ca/                                                                                             |
+| Folding@Home                                                          | https://github.com/FoldingAtHome/coronavirus                                                                         |
+| Formatted ZINC Database                                               | https://github.com/molecularsets/moses                                                                               |
+| GEO Signatures of Differentially Expressed Genes for Viral Infections | https://amp.pharm.mssm.edu/Harmonizome/dataset/GEO+Signatures+of+Differentially+Expressed+Genes+for+Viral+Infections |
+| NextStrain                                                            | https://nextstrain.org/                                                                                              |
+| ZINC Database                                                         | https://zinc.docking.org/                                                                                            |
 
 ### Docking Tools
 
