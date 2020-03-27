@@ -100,6 +100,7 @@ internet to use. Please ensure that you don't commit any sensitive information!
 | GEO Signatures of Differentially Expressed Genes for Viral Infections | https://amp.pharm.mssm.edu/Harmonizome/dataset/GEO+Signatures+of+Differentially+Expressed+Genes+for+Viral+Infections |
 | NextStrain                                                            | https://nextstrain.org/                                                                                              |
 | ZINC Database                                                         | https://zinc.docking.org/                                                                                            |
+| Dataset Search                                                        | https://blog-google.cdn.ampproject.org/c/s/blog.google/products/search/discovering-millions-datasets-web/amp/        |
 
 ### Docking Tools
 
