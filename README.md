@@ -33,9 +33,9 @@ Next, we would like to thanks jhjensen2 with his repository Graph-based genetic 
 # Team Details
 Team Name: TaoFuFa
 1) Quek Yao Jing [Skyquek-github](https://github.com/Skyquek)
-2) Liew Kok Fu [Skyquek-github](https://github.com/Skyquek)
-3) Tang Li Ho [Skyquek-github](https://github.com/Skyquek)
-4) Kwong Tung Nan [Skyquek-github](https://github.com/Skyquek)
+2) Liew Kok Fu [Skyquek-github](https://github.com/Skyquek) ----------------- Janson
+3) Tang Li Ho [Skyquek-github](https://github.com/Skyquek) ------------------ Li Ho
+4) Kwong Tung Nan [Skyquek-github](https://github.com/Skyquek) -------------Kwong
 
 # Requirements
 The requirements are identical to the original repository [Deep_Learning_Coronavirus_Cure](https://github.com/mattroconnor/deep_learning_coronavirus_cure)
