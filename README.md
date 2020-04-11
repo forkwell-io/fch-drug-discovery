@@ -34,7 +34,7 @@ Next, we would like to thanks jhjensen2 with his repository Graph-based genetic 
 Team Name: TaoFuFa
 1) Quek Yao Jing [Skyquek-github](https://github.com/Skyquek)
 2) Liew Kok Fu [Skyquek-github](https://github.com/Skyquek) ----------------- Janson
-3) Tang Li Ho [Skyquek-github](https://github.com/Skyquek) ------------------ Li Ho
+3) Tang Li Ho [4036tlh-github](https://github.com/4036tlh)
 4) Kwong Tung Nan [Skyquek-github](https://github.com/Skyquek) -------------Kwong
 
 # Requirements
@@ -57,14 +57,35 @@ The initial population is depend on the molecule we compute before passing it to
 
 We select the number of molecule we need from the population to the mating pool. The selection criteria is based on the fitness function. This number is also the number of molecule returned after every generation. 
 
-- **Cross-Over: Explain how the chemical cross-over work...................TANG LI HO**
+- **Cross-Over: Exchange part of 2 molecules to generate 2 new Molecules**
 
-LI HO, update here. 
+At first the system will randomly select crossover at ring or non-ring with equal chance. If the two random selected molecules do not have the valid structure for the crossover, it will return none and 2 molecules will be selected again. 
+-As the ring is selected to crossover, we randomly pick one of the edges of the ring 
+-As the non-ring is selected to crossover, one of the single bond(not in ring) will be selected randomly
+Then we rejoin these broken molecules and combine them to form 2 new molecules. 2 new molecules will be returned from this function.
 
 
-- **Mutation: Explain how the chemical mutation work.......................TANG LI HO**
+- **Mutation: Mutate part of a molecule**
 
-LI HO, update here. 
+At the mutation part, the molecule will undergo 7 types of process separately and a random position to do mutation will be selected inside the function based on their requirement:
+insert_atom()		
+- A random bond will be selected and the bond type will decide the type of the inserted ion(the inserted ions are classified into 3 categories based on their charge: -1, -2, -3), these information is took into consideration  so that the product can has a valid chemical structure.
+change_bond_order()
+- It gives the new molecule a different shape but same atoms as original.
+delete_cyclic_bond()
+- One of the ring inside the molecule will be removed
+add_ring()
+- A ring will be added in a single bond between 2 molecules
+delete_atom()
+- A random ion will be removed.
+change_atom(mol)
+- A random ion is selected and replaced by another molecule which same charge with it.
+append_atom()
+- An atom will be selected and the number of hydrogen around it will decide the type of the inserted ion(1H then an ion with charge -1 will be used; 2H will use ion with charge -2;.....) , the new atom will replace the hydrogen(s) and form a new molecule.
+After these 7 processes, one of them will be selected and returned if it is valid.
+
+
+
 
 - **Fitness Fucntion: The fitness function of the molecule is based on the logP value. From this [article](https://www.acdlabs.com/download/app/physchem/making_sense.pdf), the oral administration of drug should be lower than 5 and best in the range of 1.35 - 1.8.**
 
