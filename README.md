@@ -105,7 +105,6 @@ After these 7 processes, one of them will be selected and returned if it is vali
 
 
 
-
 - **Fitness Fucntion: The fitness function of the molecule is based on the logP value. From this [article](https://www.acdlabs.com/download/app/physchem/making_sense.pdf), the oral administration of drug should be lower than 5 and best in the range of 1.35 - 1.8.**
 
 The fitness function is the evaluation criteria in every single generation. 
