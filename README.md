@@ -148,11 +148,11 @@ Global-Generation 0:
 While each Global-Generation < n, 
 
 7. From the master table (load from Global-Generation before this), 
-- Select the 35 based on score
-- 10 based on the similarity
-- 10 based on log(P)
-- 10 based on weights
-- 5 based on random generation
+- Select the number of x based on score
+- number of x based on the similarity
+- number of x based on log(P)
+- number of x based on weights
+- number of x based on random generation
 
     7.1) From the number of molecule we select at 7, we pass to Local GA to obtain 10 molecule which contains logP 1.35 - 1.8
 
