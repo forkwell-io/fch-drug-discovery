@@ -24,12 +24,12 @@ Below are samples of existing drugs that have been experimented with the coronav
 
 
 # Acknowledgement
-Our team would like to thank all parties, including but not limited to the forkwell coronavirus hack organizing team and mentors for giving us the chances to work on this project and contributing to the COVID-19 outbreak. 
+Our team would like to thank all parties, including but not limited to the forkwell coronavirus hack organizing team and mentors for giving us the chances to work on this project while contributing to the COVID-19 outbreak. 
 
-This work is continuous progress from the repository [Deep_Learning_Coronavirus_Cure](https://github.com/mattroconnor/deep_learning_coronavirus_cure) by [Matt O Connor](https://github.com/mattroconnor) who also happen to be our mentor in this hackathon. As such, we would like to thank him for his extensive mentoring and code for the project.
+This work is continuous progress from the repository [Deep_Learning_Coronavirus_Cure](https://github.com/mattroconnor/deep_learning_coronavirus_cure) by [Matt O Connor](https://github.com/mattroconnor) who also happened to be our mentor in this hackathon. As such, we would like to thank him for his extensive mentoring and code.
 
 Next, we would like to thank [**jhjensen2**](https://github.com/jensengroup) for his repository - [Graph-Based Genetic Algorithm \[GB-GA\]](https://github.com/jensengroup/GB-GA).  
-The details of his work can be found in his paper - [**"A graph-based genetic algorithm and generative model/Monte Carlo tree search for the exploration of chemical space"**](https://pubs.rsc.org/en/content/articlelanding/2019/SC/C8SC05372C#!divAbstract).
+The details of his work can be found in his paper - ["A graph-based genetic algorithm and generative model/Monte Carlo tree search for the exploration of chemical space"](https://pubs.rsc.org/en/content/articlelanding/2019/SC/C8SC05372C#!divAbstract).
 
 # Team Details
 Team Name: TaoFuFa
@@ -50,57 +50,59 @@ The requirements are identical to the original repository [mattroconnor/Deep_Lea
 
 ### Docking
 - [Microsoft PowerShell 5.0 or above](https://docs.microsoft.com/en-us/powershell/?view=powershell-7) 
-- [AutoDock Vina Binaries](http://vina.scripps.edu/), also included in the "automatedDocking" folder.
+- [AutoDock Vina Binaries](http://vina.scripps.edu/), also included in the ["binding" folder](./scripts/binding).
 
 ### Conversion
 - [Microsoft PowerShell 5.0 or above](https://docs.microsoft.com/en-us/powershell/?view=powershell-7) 
 - [NodeJS](https://nodejs.org/en/)
 
 # Changes to Original files
-In this repository, we introduced a new concept - local Genetic Algorithm (local-GA), an evolutionary computing optimization method. In our method, we plan to keep things easy as this repository is considered a good start and well-maintained. 
+In this repository, we introduced a new concept - local Genetic Algorithm (local-GA), an evolutionary computing optimization method. We plan to keep things easy and simple as this repository is well-maintained and can be taken as a good start.
 
-This method utilizes cross-over and mutation to search for the most suitable molecule in the chemical space based on its fitness function.
+Our method utilizes cross-over and mutation to search for the most suitable molecule in the chemical space based on its fitness function.
 
-We implement local-GA in 2 parts: 
-- Before the Transfer Learning
-- Last Phase (before exporting the molecule to the sdf file format)
+We implement the local-GA in 2 areas:
+1. Before Transfer Learning 
+1. Before exporting the molecule to the sdf file format
 
-In our approaches, this is overview of our local GA:
+This is an overview of our local GA:
 - **Population: The number of original molecule**\
-The initial population depends on the molecules we compute before passing it to the local GA. There are 2 part that we called the local-GA which is before the transfer learning and before exporting the sdf files. So, the first population is the 70 molecule selected based on score, similarity, logP and also random generated. In second local-GA, number of validated molecule from 5000 molecule generated after transfer learning is used.
+  The initial population depends on the molecules we compute before passing it on to the local GA. 
+  The first local-GA will select of 70 molecules based on `score`, `similarity` and `logP`, together with some random selections. 
+  In second local-GA, number of validated molecule from 5000 molecule generated after transfer learning is used.
 
 - **Mating Pool: The number we want to pass generation by generation**\
-We select the number of molecule we need from the population to the mating pool. The selection criteria is based on the fitness function. This number is also the number of molecule returned after every generation. 
+  We select the number of molecule we need from the population to the mating pool. The selection criteria is based on the fitness function. This number is also the number of molecule returned after every generation. 
 
 - **Cross-Over: Exchange part of 2 molecules to generate 2 new Molecules**\
-At first the system will randomly select crossover at ring or non-ring with equal chance. If the two random selected molecules do not have the valid structure for the crossover, it will return none and 2 molecules will be selected again.
+  The system will first randomly select crossover at ring or non-ring with equal chance. If the two random selected molecules does not have a valid structure for crossover, it will be ignored and 2 other molecules will be selected instead.
   - As the ring is selected to crossover, we randomly pick one of the edges of the ring 
   - As the non-ring is selected to crossover, one of the single bond(not in ring) will be selected randomly.\
 We then rejoin these broken molecules and combine them to form 2 new molecules. 2 new molecules will be returned from this function.
 
 
 - **Mutation: Mutate part of a molecule**\
-At the mutation part, the molecule will undergo 7 types of process separately and a random position to do mutation will be selected inside the function based on their requirement:
+  The molecule will undergo 7 types of process separately and a random position to do mutation will be selected inside the function based on their requirements:
 
   - `insert_atom()`\
-  A random bond will be selected and the bond type will decide the type of the inserted ion(the inserted ions are classified into 3 categories based on their charge: -1, -2, -3), these information is took into consideration  so that the product can has a valid chemical structure.
+    A random bond will be selected and the bond type will decide the type of the inserted ion(the inserted ions are classified into 3 categories based on their charge: -1, -2, -3), these information is took into consideration  so that the product can has a valid chemical structure.
   - `change_bond_order()`\
-  It gives the new molecule a different shape but same atoms as original.
+    It gives the new molecule a different shape but same atoms as original.
   - `delete_cyclic_bond()`\
-  One of the ring inside the molecule will be removed
+    One of the ring inside the molecule will be removed
   - `add_ring()`\
-  A ring will be added in a single bond between 2 molecules
+    A ring will be added in a single bond between 2 molecules
   - `delete_atom()`\
-  A random ion will be removed.
+    A random ion will be removed.
   - `change_atom(mol)`\
-  A random ion is selected and replaced by another molecule which same charge with it.
+    A random ion is selected and replaced by another molecule which same charge with it.
   - `append_atom()`\
-  An atom will be selected and the number of hydrogen around it will decide the type of the inserted ion(1H then an ion with charge -1 will be used; 2H will use ion with charge -2;.....) , the new atom will replace the hydrogen(s) and form a new molecule.
+    An atom will be selected and the number of hydrogen around it will decide the type of the inserted ion(1H then an ion with charge -1 will be used; 2H will use ion with charge -2;.....) , the new atom will replace the hydrogen(s) and form a new molecule.
 
   After these 7 processes, one of them will be selected and returned if it is valid.
 
 
-- **Fitness Function: The fitness function of the molecule is based on the logP value. From this [article](https://www.acdlabs.com/download/app/physchem/making_sense.pdf), the oral administration of drug should be lower than 5 and best in the range of 1.35 - 1.8.**
+- **Fitness Function: The fitness function of the molecule is based on the logP value. According to ["LogP — Making Sense of the Value" by Sanjivanjit K. Bhal](https://www.acdlabs.com/download/app/physchem/making_sense.pdf), the oral administration of drug should be lower than 5 and best in the range of 1.35 - 1.8.**
 
   The fitness function is the evaluation criteria in every single generation. 
 
@@ -192,7 +194,7 @@ Evaluation:
 # License
 <img align="right" src="http://opensource.org/trademarks/opensource/OSI-Approved-License-100x137.png">
 
-This tool is licensed under the MIT License: <http://opensource.org/licenses/MIT>.  
+This project is licensed under the MIT License: <http://opensource.org/licenses/MIT>\
 Copyright &copy; 2020 [Quek Yao Jing](https://github.com/Skyquek), [Liew Kok Fu](https://github.com/Janson-L), [Tang Li Ho](https://github.com/4036tlh), [Kwong Tung Nan](https://github.com/kwongtn) 
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
