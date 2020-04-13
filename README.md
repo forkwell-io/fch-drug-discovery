@@ -28,10 +28,18 @@ Below are samples of existing drugs that have been experimented with the coronav
 # Acknowledgement
 Our team would like to thank all parties, including but not limited to the forkwell coronavirus hack organizing team and mentors for giving us the chances to work on this project while contributing to the COVID-19 outbreak. 
 
-This work is continuous progress from the repository [Deep_Learning_Coronavirus_Cure](https://github.com/mattroconnor/deep_learning_coronavirus_cure) by [Matt O Connor](https://github.com/mattroconnor) who also happened to be our mentor in this hackathon. As such, we would like to thank him for his extensive mentoring and code.
+No project is done without the support of various parties. As such, we would like to specially shoutout to the following amazing individuals:
 
-Next, we would like to thank [**jhjensen2**](https://github.com/jensengroup) for his repository - [Graph-Based Genetic Algorithm \[GB-GA\]](https://github.com/jensengroup/GB-GA).  
+- [**Matt O Connor**](https://github.com/mattroconnor)\
+This project is continuous progress from the repository [Deep_Learning_Coronavirus_Cure](https://github.com/mattroconnor/deep_learning_coronavirus_cure) by Matt O Connor who also happened to be our mentor in this hackathon. We would like to thank him for his extensive mentoring and open source coding.
+
+- [**jhjensen2**](https://github.com/jensengroup)\
+The [Graph-Based Genetic Algorithm \[GB-GA\]](https://github.com/jensengroup/GB-GA) is one of our main components in this project. We would like to thank him and his team for the repository which enabled us to reduce our time taken to complete the project.  
 The details of his work can be found in his paper - ["A graph-based genetic algorithm and generative model/Monte Carlo tree search for the exploration of chemical space"](https://pubs.rsc.org/en/content/articlelanding/2019/SC/C8SC05372C#!divAbstract).
+
+- **Dr. Low Tek Yew**\
+We would like to thank Dr. Low Tek Yew for the [extensive introduction to the hackathon](https://www.youtube.com/watch?v=gQ0zSjqi7PU) and the COVID-19 virus characteristics. His explanation of protease and ligand binding is pivotal to our project.  
+
 
 # Team Details
 Team Name: TaoFuFa
