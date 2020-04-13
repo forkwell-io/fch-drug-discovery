@@ -1,0 +1,7 @@
+How to use
+
+1. Copy all .pdbqt files into the root directory.
+2. Using Windows PowerShell, cd to the current directory and run the following command:
+   ./binding.ps1
+3. Let it run, go drink some coffee or anything.
+4. Collect results in the output folder.
