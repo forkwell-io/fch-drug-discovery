@@ -66,36 +66,35 @@ The requirements are identical to the original repository [mattroconnor/Deep_Lea
 - [Microsoft PowerShell 5.0 or above](https://docs.microsoft.com/en-us/powershell/?view=powershell-7) 
 - [NodeJS](https://nodejs.org/en/)
 
-# Comparisons to the Original Repositories
-In this repository, we introduced a new concept - local Genetic Algorithm (local-GA), an evolutionary computing optimization method. We plan to keep things easy and simple as the [original repository](https://github.com/jensengroup/GB-GA) is well-maintained and is already ready for usage.
+# Methodology
+## local-GA
+In this project, we introduced a new concept - local Genetic Algorithm (local-GA), an evolutionary computing optimization method. We plan to keep things easy and simple as the [original repository](https://github.com/jensengroup/GB-GA) is well-maintained and is already ready for usage.
 
 Our method utilizes cross-over and mutation to search for the most suitable molecule in the chemical space based on its fitness function.
 
-We implement the local-GA in 2 areas:
+We implement the local-GA in 2 areas (details in next section):
 1. Before Transfer Learning 
 1. Before exporting the molecule to the sdf file format
+### **Population: The original molecule**
+- The initial population depends on the molecules we compute before passing it on to the local-GA. 
+- The first local-GA will select of 70 molecules based on `score`, `similarity` and `log(P)`, together with some random selections. 
+- In the second local-GA, the validated molecules from the 5000 generated molecule after transfer learning is used.
 
-This is an overview of our local-GA:
-- **Population: The original molecule**\
-  The initial population depends on the molecules we compute before passing it on to the local-GA. 
-  The first local-GA will select of 70 molecules based on `score`, `similarity` and `logP`, together with some random selections. 
-  In second local-GA, the validated molecules from the 5000 generated molecule after transfer learning is used.
+### **Mating Pool: The molecules we want to pass from generation by generation**
+We select the molecules we need from the population to the mating pool based on the fitness function. 
 
-- **Mating Pool: The molecules we want to pass from generation by generation**\
-  We select the molecules we need from the population to the mating pool. The selection criteria is based on the fitness function. This number is also the number of molecules returned after every generation. 
+### **Cross-Over: Exchange part of 2 molecules to generate 2 new Molecules**
+The system will first randomly select 2 molecules for crossover at ring or non-ring with equal probability. If the two molecules does not have a valid structure for crossover, it will not be used:
+- If a ring structure is selected for crossover, we randomly pick one of the edges of the ring 
+- If a non-ring structure is selected for crossover, one of the single bonds (not in ring) will be selected randomly.
 
-- **Cross-Over: Exchange part of 2 molecules to generate 2 new Molecules**\
-  The system will first randomly select 2 molecules for crossover at ring or non-ring with equal probability. If the two molecules does not have a valid structure for crossover, it will not be used.
-  - If a ring structure is selected for crossover, we randomly pick one of the edges of the ring 
-  - If a non-ring structure is selected for crossover, one of the single bonds (not in ring) will be selected randomly.\
 We then rejoin these broken molecules and combine them to form 2 new molecules. 2 new molecules will be returned from this function.
 
-
-- **Mutation: Mutate part of a molecule**\
-  The molecule will undergo 7 processes separately and a random position on the molecule will be selected to do mutation by the function based on their requirements:
+### **Mutation: Mutate part of a molecule**
+The molecule will undergo 7 processes separately and a random position on the molecule will be selected to do mutation by the function based on their requirements:
 
   - `insert_atom()`\
-    A random bond will be selected and the bond type will be classified into 3 categories based on their charge: -1, -2, -3, these information are taken into consideration so that the product will have a valid chemical structure.
+    A random bond is selected and classified into 3 categories based on their charge: -1, -2, -3, these information are taken into consideration so that the product will have a valid chemical structure.
   - `change_bond_order()`\
     It gives the new molecule a different shape, while having the same atoms as the original.
   - `delete_cyclic_bond()`\
