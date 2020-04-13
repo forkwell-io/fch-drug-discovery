@@ -2,7 +2,7 @@
 ## Forkwell Coronavirus Hack: Drug Discovery
 This is a submission to the [Forkwell Coronavirus Hack Competition](https://www.forkwell.io/events/forkwell-coronavirus-hack) by Forkwell under the **Drug Discovery** category.
 
-The goal of this category is to create a novel small molecule or find existing drugs on the market that are able to stop or interfere with the coronavirus lifecyle. Therefore, one of the approaches to this is to find out the drugs/ligands that are able to bind with the coronavirus main protease [6LU7](https://www.rcsb.org/structure/6lu7). 
+The goal of this category is to create a novel small molecule or find existing drugs on the market that are able to stop or interfere with the coronavirus lifecyle. Therefore, one of the approaches to this is to find out the drugs/ligands that are able to bind with the [coronavirus main protease 6LU7](https://www.rcsb.org/structure/6lu7). 
 
 Several researches and experiments have been conducted and recorded in the [DrugBank paper](https://drugbank.s3-us-west-2.amazonaws.com/assets/blog/COVID-19_Web.pdf). We then use the data to determine our evaluation target. 
 
@@ -39,8 +39,7 @@ Team Name: TaoFuFa
 4. Kwong Tung Nan - [https://github.com/kwongtn](https://github.com/kwongtn) 
 
 # Requirements
-## Graph-Based Genetic Algorithm \[GB-GA\]
-The requirements are identical to the original repository [Deep_Learning_Coronavirus_Cure](https://github.com/mattroconnor/deep_learning_coronavirus_cure)
+The requirements are identical to the original repository [mattroconnor/Deep_Learning_Coronavirus_Cure](https://github.com/mattroconnor/deep_learning_coronavirus_cure)
 
 ## Docking
 ### Data Preparation
