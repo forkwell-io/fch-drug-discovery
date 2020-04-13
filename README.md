@@ -116,7 +116,8 @@ We then rejoin these broken molecules and combine them to form 2 new molecules. 
 Not only does logP help predict the likely transport of a compound around the body. It also affects formulation, dosing, drug clearance, and toxicity. Though it is not the only determining factor in these issues, it plays a critical role in helping scientists limit the liabilities of new drug candidates.
 
 # Approaches
-## Original Approaches: 
+## Original Approach
+_According to [Deep_Learning_Coronavirus_Cure](https://github.com/mattroconnor/deep_learning_coronavirus_cure)_
 
 Global-Generation 0:
 
@@ -124,52 +125,50 @@ Global-Generation 0:
 1. From LSTM CHEM, we predict 10k of data
 1. Check the validation
 1. Compute Tanimoto similarity, select 1000 only
-1. Give ID to the 1000 smile, add the HIV, and other drugs SMILE manually…. 
+1. Give ID to the 1000 SMILE, add the HIV, and other drugs SMILE manually…. 
 1. Save all in master table and manually check from PyRX to get the affinity
 
 While each Global-Generation < n, 
 
-7) From the master table (load from Global-Generation before this), 
-- 35 based on score
-- 5 based on the similarity
-- 5 based on the weight
-- 5 based on the random mutation
+7. From the master table (load from Global-Generation before this), we select 
+  - 35 molecules based on score
+  - 5 molecules based on the similarity
+  - 5 molecules based on the weight
+  - 5 molecules based on the random mutation
   
 1) From 55, we do Transfer Learning. We then  generate 5k of data and then perform validation and similarity and generate master table. 
 
 ## Modified Approaches:
 Global-Generation 0:
 1. LSTM-CHEM to train ChEMBL Database
-2. From LSTM CHEM, we predict 10k of data
-3. Check the validation
-4. Compute Tanimoto similarity, select 1000 only
-5. Give ID to the 1000 smile, add the HIV, and others drugs SMILE manually…. 
-6. Save all in master table and manually check from PyRX to get the affinity
+1. From LSTM CHEM, we predict 10k of data
+1. Check the validation
+1. Compute Tanimoto similarity, select 1000 only
+1. Give ID to the 1000 SMILE, add the HIV, and others drugs SMILE manually…. 
+1. Save all in master table and manually check from PyRX to get the affinity
 
 While each Global-Generation < n, 
 
-7. From the master table (load from Global-Generation before this), 
-- Select the number of x based on score
-- number of x based on the similarity
-- number of x based on log(P)
-- number of x based on weights
-- number of x based on random generation
+7. From the master table (load from Global-Generation before this), we select the number of `x` based on:
+    - Score
+    - Similarity
+    - log(P)
+    - Weights
+    - Generation
 
-    7.1) From the number of molecule we select at 7, we pass to Local GA to obtain 10 molecule which contains logP 1.35 - 1.8
-
-    7.2) Combined all the molecule from 7 and 7.1 and pass to 8
-8. By using 90 molecule, we perform Transfer Learning and generate 5k of data.
-9. From the 5k of data, we do validation to make sure it is  valid molecule. 
-10. After that, we generate another 50 molecule using local-GA which has logP 1.35-1.8. 
-11. Validate the 50 molecule generated using local-GA and combined with molecule from 9.
-12. Export to sdf and evaluate with PyRX. Note
+1. We then pass the obtained molecules the to Local GA to further obtain 10 molecules that have `logP` of 1.35-1.80.
+1. By using 90 molecule, we perform Transfer Learning and generate 5k of data.
+1. From the 5k of data, we do validation to make sure it is  valid molecule. 
+1. After that, we generate another 50 molecule using local-GA which has logP 1.35-1.8. 
+1. Validate the 50 molecule generated using local-GA and combined with molecule from 9.
+1. Export to sdf and evaluate with PyRX. Note
 
 There are few ideas we think of improving: 
 1. Change the LSTM network to Generative Adversarial Network (GAN), but after discussion we found out that its is not necessary as LSTM is good enough for this project. GAN is computing expensive and requires much more training time. 
 
 2. From the evaluation, we plan to use neural network to perform prediction, but after we think twice we found out that the neural network is just the estimation of the affirnity which is dangerous as its contains errors in the prediction. 
 
-# Challenge
+# Challenges Faced
 We face the challenge of loading the chemical data into the PyRX and compute the binding affirnity. This process is time consuming. 1.5 of data requires 12 hours of training.............JANSON & KWONG
 
 # Future work
