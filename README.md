@@ -2,7 +2,7 @@
 ## Forkwell Coronavirus Hack: Drug Discovery
 This is a submission to the [Forkwell Coronavirus Hack Competition](https://www.forkwell.io/events/forkwell-coronavirus-hack) by Forkwell under the **Drug Discovery** category.
 
-The goal of this category is to create a novel small molecule or find existing drugs on the market that are able to stop or interfere with the coronavirus lifecyle. Therefore, one of the approaches to this is to find out the drugs/ligands that are able to bind with the coronavirus main protease [6LU7](https://www.rcsb.org/structure/6lu7). 
+The goal of this category is to create a novel small molecule or find existing drugs on the market that are able to stop or interfere with the coronavirus lifecyle. Therefore, one of the approaches to this is to find out the drugs/ligands that are able to bind with the [coronavirus main protease 6LU7](https://www.rcsb.org/structure/6lu7). 
 
 Several researches and experiments have been conducted and recorded in the [DrugBank paper](https://drugbank.s3-us-west-2.amazonaws.com/assets/blog/COVID-19_Web.pdf). We then use the data to determine our evaluation target. 
 
@@ -39,7 +39,7 @@ Team Name: TaoFuFa
 4. Kwong Tung Nan - [https://github.com/kwongtn](https://github.com/kwongtn) 
 
 # Requirements
-The requirements are identical to the original repository [Deep_Learning_Coronavirus_Cure](https://github.com/mattroconnor/deep_learning_coronavirus_cure)
+The requirements are identical to the original repository [mattroconnor/Deep_Learning_Coronavirus_Cure](https://github.com/mattroconnor/deep_learning_coronavirus_cure)
 
 
 # Changes to Original files
@@ -52,19 +52,17 @@ We implement local-GA in 2 part, which is before the Transfer Learning and at te
 In our approaches, this is overview of our local GA:
 - **Population: The number of original molecule**
 
-The initial population is depend on the molecule we compute before passing it to the local GA. There are 2 part that we called the local-GA which is before the transfer learning and before exporting the sdf files. So, the first population is the 70 molecule selected based on score, similarity, logP and also random generated. In second local-GA, number of validated molecule from 5000 molecule generated after transfer learning is used.
+  The initial population is depend on the molecule we compute before passing it to the local GA. There are 2 part that we called the local-GA which is before the transfer learning and before exporting the sdf files. So, the first population is the 70 molecule selected based on score, similarity, logP and also random generated. In second local-GA, number of validated molecule from 5000 molecule generated after transfer learning is used.
 
 - **Mating Pool: The number we want to pass generation by generation**
 
-We select the number of molecule we need from the population to the mating pool. The selection criteria is based on the fitness function. This number is also the number of molecule returned after every generation. 
+  We select the number of molecule we need from the population to the mating pool. The selection criteria is based on the fitness function. This number is also the number of molecule returned after every generation. 
 
 - **Cross-Over: Exchange part of 2 molecules to generate 2 new Molecules**
 
-At first the system will randomly select crossover at ring or non-ring with equal chance. If the two random selected molecules do not have the valid structure for the crossover, it will return none and 2 molecules will be selected again. 
-
--As the ring is selected to crossover, we randomly pick one of the edges of the ring 
-
--As the non-ring is selected to crossover, one of the single bond(not in ring) will be selected randomly
+  At first the system will randomly select crossover at ring or non-ring with equal chance. If the two random selected molecules do not have the valid structure for the crossover, it will return none and 2 molecules will be selected again. 
+  - As the ring is selected to crossover, we randomly pick one of the edges of the ring 
+  - As the non-ring is selected to crossover, one of the single bond(not in ring) will be selected randomly
 
 Then we rejoin these broken molecules and combine them to form 2 new molecules. 2 new molecules will be returned from this function.
 
