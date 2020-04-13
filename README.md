@@ -1,5 +1,5 @@
 # COVID-19 Drug Discovery using Genetic Algorithm and Deep Learning
-<img width="50%" height="auto" src="https://github.com/Skyquek/fch-drug-discovery/blob/master/Covid-19.png">
+<img width="50%" height="auto" src="https://github.com/Skyquek/fch-drug-discovery/blob/master/img/covid-19.png">
 
 ## Forkwell Coronavirus Hack: Drug Discovery
 This is a submission to the [Forkwell Coronavirus Hack Competition](https://www.forkwell.io/events/forkwell-coronavirus-hack) by Forkwell under the **Drug Discovery** category.
