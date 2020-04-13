@@ -58,8 +58,8 @@ The requirements are identical to the original repository [mattroconnor/Deep_Lea
 - [Microsoft PowerShell 5.0 or above](https://docs.microsoft.com/en-us/powershell/?view=powershell-7) 
 - [NodeJS](https://nodejs.org/en/)
 
-# Changes to Original files
-In this repository, we introduced a new concept - local Genetic Algorithm (local-GA), an evolutionary computing optimization method. We plan to keep things easy and simple as this repository is well-maintained and can be taken as a good start.
+# Comparisons to the Original Repositories
+In this repository, we introduced a new concept - local Genetic Algorithm (local-GA), an evolutionary computing optimization method. We plan to keep things easy and simple as the [original repository](https://github.com/jensengroup/GB-GA) is well-maintained and is already ready for usage.
 
 Our method utilizes cross-over and mutation to search for the most suitable molecule in the chemical space based on its fitness function.
 
@@ -67,55 +67,55 @@ We implement the local-GA in 2 areas:
 1. Before Transfer Learning 
 1. Before exporting the molecule to the sdf file format
 
-This is an overview of our local GA:
-- **Population: The number of original molecule**\
-  The initial population depends on the molecules we compute before passing it on to the local GA. 
+This is an overview of our local-GA:
+- **Population: The original molecule**\
+  The initial population depends on the molecules we compute before passing it on to the local-GA. 
   The first local-GA will select of 70 molecules based on `score`, `similarity` and `logP`, together with some random selections. 
-  In second local-GA, number of validated molecule from 5000 molecule generated after transfer learning is used.
+  In second local-GA, the validated molecules from the 5000 generated molecule after transfer learning is used.
 
-- **Mating Pool: The number we want to pass generation by generation**\
-  We select the number of molecule we need from the population to the mating pool. The selection criteria is based on the fitness function. This number is also the number of molecule returned after every generation. 
+- **Mating Pool: The molecules we want to pass from generation by generation**\
+  We select the molecules we need from the population to the mating pool. The selection criteria is based on the fitness function. This number is also the number of molecules returned after every generation. 
 
 - **Cross-Over: Exchange part of 2 molecules to generate 2 new Molecules**\
-  The system will first randomly select crossover at ring or non-ring with equal chance. If the two random selected molecules does not have a valid structure for crossover, it will be ignored and 2 other molecules will be selected instead.
-  - As the ring is selected to crossover, we randomly pick one of the edges of the ring 
-  - As the non-ring is selected to crossover, one of the single bond(not in ring) will be selected randomly.\
+  The system will first randomly select 2 molecules for crossover at ring or non-ring with equal probability. If the two molecules does not have a valid structure for crossover, it will not be used.
+  - If a ring structure is selected for crossover, we randomly pick one of the edges of the ring 
+  - If a non-ring structure is selected for crossover, one of the single bonds (not in ring) will be selected randomly.\
 We then rejoin these broken molecules and combine them to form 2 new molecules. 2 new molecules will be returned from this function.
 
 
 - **Mutation: Mutate part of a molecule**\
-  The molecule will undergo 7 types of process separately and a random position to do mutation will be selected inside the function based on their requirements:
+  The molecule will undergo 7 processes separately and a random position on the molecule will be selected to do mutation by the function based on their requirements:
 
   - `insert_atom()`\
-    A random bond will be selected and the bond type will decide the type of the inserted ion(the inserted ions are classified into 3 categories based on their charge: -1, -2, -3), these information is took into consideration  so that the product can has a valid chemical structure.
+    A random bond will be selected and the bond type will be classified into 3 categories based on their charge: -1, -2, -3, these information are taken into consideration so that the product will have a valid chemical structure.
   - `change_bond_order()`\
-    It gives the new molecule a different shape but same atoms as original.
+    It gives the new molecule a different shape, while having the same atoms as the original.
   - `delete_cyclic_bond()`\
-    One of the ring inside the molecule will be removed
+    One of the ring inside the molecule will be removed.
   - `add_ring()`\
-    A ring will be added in a single bond between 2 molecules
+    A ring will be added in a single bond between 2 molecules.
   - `delete_atom()`\
     A random ion will be removed.
   - `change_atom(mol)`\
-    A random ion is selected and replaced by another molecule which same charge with it.
+    A random ion is selected and replaced by another molecule with the same charge as it.
   - `append_atom()`\
-    An atom will be selected and the number of hydrogen around it will decide the type of the inserted ion(1H then an ion with charge -1 will be used; 2H will use ion with charge -2;.....) , the new atom will replace the hydrogen(s) and form a new molecule.
+    An atom will be selected and the number of hydrogen atoms around it will be used to decide the type of inserted ion (if 1 then an ion with charge -1 will be used; if 2 then an ion with charge -2 will be used; etc.). The new atom will replace the hydrogen(s) and form a new molecule.
 
   After these 7 processes, one of them will be selected and returned if it is valid.
 
 
-- **Fitness Function: The fitness function of the molecule is based on the logP value. According to ["LogP — Making Sense of the Value" by Sanjivanjit K. Bhal](https://www.acdlabs.com/download/app/physchem/making_sense.pdf), the oral administration of drug should be lower than 5 and best in the range of 1.35 - 1.8.**
+- **Fitness Function:** \
+  The fitness function is the evaluation criteria in every generation
+  The fitness function of the molecule is based on the `logP` value. According to ["LogP — Making Sense of the Value" by Sanjivanjit K. Bhal](https://www.acdlabs.com/download/app/physchem/making_sense.pdf), the oral administration of drug should be lower than `5` and best between `1.35` and `1.80`.
 
-  The fitness function is the evaluation criteria in every single generation. 
 
-  LogP is used in the pharmaceutical/biotech industries to understand the behavior of drug molecules in the body. Drug candidates are often screened according to logP, among other criteria, to help guide drug selection and analog optimization. This is because lipophilicity is a major determining factor in a compound’s absorption, distribution in the body, penetration across vital membranes and biological barriers, metabolism and excretion (ADME properties). According to ‘Lipinski’s Rule of 5’ (developed at Pfizer) the logP of a compound intended for oral administration should be <5. A more lipophilic compound:
+  `logP` is used in the pharmaceutical/biotech industries to help understand the behavior of drug molecules in the body. Drug candidates are often screened according to `logP` among other criteria, to help guide drug selection and analog optimization. This is because lipophilicity is a major determining factor in a compound’s absorption, distribution in the body, penetration across vital membranes and biological barriers, metabolism and excretion (ADME properties). According to ‘Lipinski’s Rule of 5’ (developed at Pfizer) the `logP` of a compound intended for oral administration should be `<5`. A more lipophilic compound:
 
   - Will have low aqueous solubility, compromising bioavailability. If an adequate concentration of a drug cannot be reached or maintained, even the most potent in-vitro substance cannot be an effective drug.
   - May be sequestered by fatty tissue and therefore difficult to excrete; in turn leading to accumulation that will impact the systemic toxicity of the substance.
-  - May not be ideal for penetration through certain barriers. A drug targeting the central nervous system (CNS) should ideally have a logP value around 2;2 for oral and intestinal absorption the idea value is 1.35–1.8, while a drug intended for sub-lingual absorption should have a logP value >5.
+  - May not be ideal for penetration through certain barriers. A drug targeting the central nervous system (CNS) should ideally have a `logP` value around `2`, for oral and intestinal absorption `1.35–1.8`, while a drug intended for sub-lingual absorption should have a `logP` value of `>5`.
 
-
-Not only does logP help predict the likely transport of a compound around the body. It also affects formulation, dosing, drug clearance, and toxicity. Though it is not the only determining factor in these issues, it plays a critical role in helping scientists limit the liabilities of new drug candidates.
+  Not only does `logP` help predict the likely transport of a compound around the body. It also affects formulation, dosing, drug clearance, and toxicity. Though it is not the only determining factor in these issues, it plays a critical role in helping scientists limit the liabilities of new drug candidates.
 
 # Approaches
 ## Original Approach
@@ -158,7 +158,7 @@ While each Global-Generation < n,
     - Weights
     - Generation
 
-1. We then pass the obtained molecules the to Local GA to further obtain 10 molecules that have `logP` of 1.35-1.80.
+1. We then pass the obtained molecules the to local-GA to further obtain 10 molecules that have `logP` of 1.35-1.80.
 1. By using 90 molecule, we perform Transfer Learning and generate 5k of data.
 1. From the 5k of data, we do validation to make sure it is  valid molecule. 
 1. After that, we generate another 50 molecule using local-GA which has logP 1.35-1.8. 
