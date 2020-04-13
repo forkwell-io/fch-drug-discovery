@@ -121,46 +121,60 @@ The fitness function is the evaluation criteria in every generation based on the
 
 Not only does `log(P)` help predict the likely transport of a compound around the body. It also affects formulation, dosing, drug clearance, and toxicity. Though it is not the only determining factor in these issues, it plays a critical role in helping scientists limit the liabilities of new drug candidates.
 
-# Approaches
-## Original Approach
-_According to [Deep_Learning_Coronavirus_Cure](https://github.com/mattroconnor/deep_learning_coronavirus_cure)_
+
+# Approach
+## Reference Approach - _[mattroconnor/Deep_Learning_Coronavirus_Cure](https://github.com/mattroconnor/deep_learning_coronavirus_cure)_
 
 Global-Generation 0:
 
 1. LSTM-CHEM to train ChEMBL Database
-1. From LSTM CHEM, we predict 10k of data
-1. Check the validation
-1. Compute Tanimoto similarity, select 1000 only
-1. Give ID to the 1000 SMILE, add the HIV, and other drugs SMILE manually…. 
-1. Save all in master table and manually check from PyRX to get the affinity
+1. From LSTM CHEM, 10k molecules were generated.
+1. Validility of molecules were checked.
+1. Compute Tanimoto similarity and select 1000 molecules.
+1. IDs were given to the 1000 SMILE files, while the HIV and other drugs' SMILE files were added manually.
+1. All molecules were saved in the master table and manually checked from PyRX to get the binding affinity.
 
 While each Global-Generation < n, 
 
-7. From the master table (load from Global-Generation before this), we select 
-  - 35 molecules based on score
-  - 5 molecules based on the similarity
-  - 5 molecules based on the weight
-  - 5 molecules based on the random mutation
+7. From the master table (loaded from Global-Generation), we select:
+    - 35 molecules based on score
+    - 5 molecules based on the similarity
+    - 5 molecules based on the weight
+    - 5 molecules based on the random mutation
   
-1) From 55, we do Transfer Learning. We then  generate 5k of data and then perform validation and similarity and generate master table. 
+8. From the 55 generated molecules, transfer learning is done. 5000 molecules are then generated, and undergo similarity and validation test. 5000 molecules were then generated, validated, checked for similarity and finally added to the master table.
 
-## Modified Approaches:
+## Our Approach
 Global-Generation 0:
 1. LSTM-CHEM to train ChEMBL Database
-1. From LSTM CHEM, we predict 10k of data
-1. Check the validation
-1. Compute Tanimoto similarity, select 1000 only
-1. Give ID to the 1000 SMILE, add the HIV, and others drugs SMILE manually…. 
-1. Save all in master table and manually check from PyRX to get the affinity
+1. From LSTM CHEM, we generate 10k molecules.
+1 Validility of molecules were checked.
+1. Compute Tanimoto similarity and select 1000 molecules.
+1. IDs were given to the 1000 SMILE files, while other drugs' SMILE files were added manually.
+1. All molecules were saved in the master table and manually checked from PyRX to get the binding affinity.
 
 While each Global-Generation < n, 
 
-7. From the master table (load from Global-Generation before this), we select the number of `x` based on:
-    - Score
-    - Similarity
-    - log(P)
-    - Weights
-    - Generation
+7. From the master table (loaded from Global-Generation), we select the molecules based on the following attributes with respect to the proportions:
+    | Attribute | No of Selections (Generations 0-10) | No of Selections (In generations 11 & 12) |
+    | --- | :---: | :---: |
+    | Score       | 35 | 55 |
+    | Similarity  | 10 | 10 |
+    | log(P)      | 10 | 65 |
+    | Weights     | 5  | 10 |
+
+1. We then pass the obtained molecules the to local-GA to further obtain 10 molecules that have `log(P)` of 1.35-1.80.
+1. By using 90 molecules, we perform `transfer learning` to generate 5,000 molecules.
+1. We then do validation on the 5000 generated molecules to discard the invalid molecules.
+1. 50 extra molecules are then generated using local-GA which has a `log(P)` value of `1.35-1.8`. 
+1. The 50 molecules are validated and combined with molecule from `Step 10`.
+1. The molecules were then exported to the sdf file format.
+1. `PyRX` was used to minimize the energy of the molecules and export the `.sdf` file into `.pdbqt` files.
+1. The files were then organized into folders (depending on how many parallel sessions we want to run) using [a PowerShell script](./scripts/folderSplitter/shard.ps1).
+1. Binding calculation [relevant files and configurations](./scripts/binding) were copied into each folder and the folders were distributed among our group members.
+1. The output files are collected from our group members once its finished processing and compiled into a `.csv` file using [a PowerShell script](./scripts/conversion/conversion.ps1) and [a NodeJS script](./scripts/conversion/convert.js).
+1. The results are interpreted and the process starts from `7` until a satisfactory result is achived or when the tester decides to stop.
+
 
 1. We then pass the obtained molecules the to local-GA to further obtain 10 molecules that have `logP` of 1.35-1.80.
 1. By using 90 molecule, we perform Transfer Learning and generate 5k of data.
