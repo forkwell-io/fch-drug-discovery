@@ -233,50 +233,7 @@ At Generations 12, we can see 24 molecules that show some good results:
   The score converge from -8.5 in generation 0 to -10 and below which is a good sign.
 </p>
 
-<div align="center">
-  <img width="90%" src="./img/line_plot_score_logp.svg">
-</div>
-<p align="center">
-  The trend of logP and score is going down which show that our hypothesis is correct.
-</p>
 
-<div align="center">
-  <img width="70%" src="./img/lm_plot_score_edible.svg">
-</div>
-<p align="center">
-  The graph show that the trend of logP < 5(Edible) are going down which indicate that we will get better and better results in later generations.
-</p>
-
-<div align="center">
-  <img width="100%" src="./img/box_plot_score.svg">
-</div>
-<p align="center">
-  We can see that the coverage of score is getting wier and wider from generation to generation. 
-</p>
-
-<div align="center">
-  <img width="100%" src="./img/box_plot_logp.svg">
-</div>
-<p align="center">
-  We can see that the coverage of logP is getting wider and wider from generation to generation.  
-</p>
-
-<div align="center">
-  <img width="100%" src="./img/violin_plot_score.svg">
-</div>
-<p align="center">
-  The width of the violin plot is getting smaller and smaller throught the generation.
-</p>
-
-<div align="center">
-  <img width="60%" src="./img/kde_joinplot_score.svg">
-</div>
-<p align="center">
-  The graphs show a lot of data generated have score around -7.5 to -9.
-</p>
-
-</br>
-</br>
 
 
 # Challenges Faced
