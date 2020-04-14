@@ -1,145 +1,81 @@
 # Forkwell Coronavirus Hack: Drug Discovery
+<hr>
 
-[Fork](https://guides.github.com/activities/forking/) this repository to start participating!
+## Introduction
+<div style="text-align: justify">
+Drug development is generally arduous, costly, and the success rate is dauntingly low. Thus, the identification of drug-target interactions (DTIs) has become a crucial step in early stages of drug discovery. Experimental confirmation of new DTIs is not an easy task, as in vitro experiments are laborious and time-consuming. Even if a confirmed DTI has been used for developing a new drug, the approval for human use of such new drugs can take many years and estimated cost may run over a billion US dollars (Dimasi et al., 2003). Hence, we developed a deep learning model to predict the pK<sub>d</sub> of drug-target pair to make a fast scan through currently approved drugs to discover candidate drugs for nCoV-19. Validating the readily available and approved drugs is more practical to curb the harsh situation in the meantime of waiting for development of de novo drugs.
+</div>
 
-[![](https://img.shields.io/discord/692562848437764096.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/jFjbXqp)
+## Directory Description
+<u>Folders</u>
+- **data**
+  - the datasets or intermediary data for training and prediction
+- **figure**
+  - images used for report writing
+- **model**
+  - trained models will be output to here
+- **mypackages**
+  - modules to be imported
 
-## About
+<u>Files</u>
+- **report.ipynb**
+  - the final report describing the steps and our findings
+- **report.html**
+  - the report rendered in html format
+- **approved_drugs_validation.ipynb**
+  - scanning of approved drugs from DrugCentral and DrugBank to find candidate drugs
+- **data_cleaning_and_munging**
+  - cleaning and transforming DTBA data from BindingDB into good shape
+- **feature_engineering.ipynb**
+  - vectorizing SMILES and target protein chain
+- **protvec_training.ipynb**
+  - training protvec for protein sequence representation
+- **purple_teletubbies_training.ipynb**
+  - training the regressor for pK<sub>d</sub> prediction
+- **smilesvec_training1.ipynb**
+  - training smilesvec for ligand representation (we use kaggle notebook and there is limited time quota, so we split it into two training)
+- **smilesvec_training2.ipynb**
+  - online training of smilesvec from smilesvec_training1.ipynb output
 
-Welcome to [Forkwell Coronavirus Hack](https://www.forkwell.io/events/forkwell-coronavirus-hack)!
-
-This repository contains the hackathon kit for you to get started on solving **topic 1: Drug
-Discovery** and eventually a place where you host all your submission artifacts as your own fork.
-
-## Sponsors
-
-| [![Microsoft](https://user-images.githubusercontent.com/19421765/77505763-ff940400-6e9e-11ea-8c47-cafdf6b3b2d6.png)](https://microsoft.com/)           | [![MDEC](https://uploads-ssl.webflow.com/5dedc0ed675ba87b09857f05/5e7b5a7ea804328ecaf8e5a2_mdec.png)](https://mdec.my/)                       | [![Runcloud](https://uploads-ssl.webflow.com/5dedc0ed675ba87b09857f05/5e79fb8c21fcad40f1a34b8a_runcloud.png)](https://runcloud.io/)                  |
-|--------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [![AWS](https://uploads-ssl.webflow.com/5dedc0ed675ba87b09857f05/5e7b5a7ef803a29eed975378_aws.png)](https://aws.amazon.com/)                           | [![DigitlOcean](https://uploads-ssl.webflow.com/5dedc0ed675ba87b09857f05/5e79fb8b1de27906a0d0c3dc_digital-ocean.png)](https://do.co/forkwell) | [![Sunway iLabs](https://uploads-ssl.webflow.com/5dedc0ed675ba87b09857f05/5e79fb8c1de2795359d0c3de_ilab.png)](https://innovationlabs.sunway.edu.my/) |
-| [![CoronaTracker](https://uploads-ssl.webflow.com/5dedc0ed675ba87b09857f05/5e7c7a1afb4b4a4e49fa0357_coronatracker.png)](https://www.coronatracker.com) | [![LEAD](https://uploads-ssl.webflow.com/5dedc0ed675ba87b09857f05/5e7c7a1af1e7b76379787b82_lead.png)](https://www.thelead.io/)                | [![AI Geeks](https://uploads-ssl.webflow.com/5dedc0ed675ba87b09857f05/5e798a3fccd66c285759a635_ai-geeks.png)](https://aigeeks.net/)                  |
-
-## Background
-
-A few studies have shown that HIV antivirals offer promising results, but this is still an open
-field of discovery.
-
-Finding a new drug or validating an existing drug are both suitable approaches.
-
-## Goal
-
-Find a candidate drug (ligand) with a high binding affinity with the COVID-19 main protease.
-
-1. Use machine learning to identify a potential candidate, then use docking software to get the
-   binding affinity between it and the main protease.
-2. Write a report that describes your process and results in detail in the form of a jupyter
-   notebook.
-
-## Submission
-
-You are required to submit a 15-minute presentation video of your report. However, to ensure the
-legitimacy of your submission, you are required to submit your project artifacts (code, datasets,
-documents) as a [fork](https://guides.github.com/activities/forking/) to this repository.
-
-A submission form will be available on the 14th of April 2020 for submission,
-please join our
-[facebook](https://facebook.com/groups/forkwellcoronavirushack/) group and
-[discord](https://discord.gg/jFjbXqp) channel to keep updated with latest changes.
-
-After creating your own [fork](https://guides.github.com/activities/forking/)
-of this repository, clone the repository:
-
+## Requirements
+gensim
 ```sh
-git clone git@github.com:<your-github-username>/fch-drug-discovery
+conda install gensim
+```
+pytorch
+```sh
+conda install -c pytorch pytorch
+```
+rdkit
+```sh
+conda install -c conda-forge rdkit
+```
+deepsmiles
+```sh
+pip install deepsmiles
+```
+biovec
+```sh
+pip install biovec
 ```
 
-Change to the directory:
+## Acknowledgement
+We would like to thank the organizer and committees of this event for bringing us an extraordinary and fun hackathon. We have learnt a lot from this hackathon and the mentors are very helpful.
 
-```sh
-cd fch-drug-discovery
-```
+## Team members
+Tan Yong Keat tyk9079@gmail.com<br>
+Luar Yong Ting yongtingluar@gmail.com<br>
+Nathaniel Ong Yii Tak hinathanielong@gmail.com<br>
+Tan Guan Yu <br>
+Alvin Wong Guan Sheng <br>
 
-Set upstream:
+## Challenges
+- pyrx takes so long to check even one DTBA
+- the sdf files generated using rdkit is different from the ones from online, yielding different results
+- no domain knowledge XD
+- all the works are not done on local machine, so we might write wrongly the file paths in our submission
 
-```sh
-git remote add upstream git@github.com:forkwell-io/fch-drug-discovery
-```
-
-...and start Hacking!!
-
-Once you are ready to submit, create a pull request from your
-[fork](https://guides.github.com/activities/forking/) to us and include the link to your fork in
-your submission form that will be available on the 14th of April 2020.
-
-Please remember that your code will be publicly available, open-sourced licesed and free for the
-internet to use. Please ensure that you don't commit any sensitive information!
-
-## Resources
-
-### Presentations
-
-[![Thomas MacDougall](https://user-images.githubusercontent.com/19421765/77504390-26e8d200-6e9b-11ea-811e-02aaf1f8adc9.png)](https://drive.google.com/open?id=1pHy9Cm4_w4Ri8lVbcN2XC637_7BaLL9P)
-
-*Virus Primer - Target a Virus*
-
-**Thomas MacDougall - Graduate Student in Computer Science at the University of Montreal**
-
-*[slides](https://drive.google.com/drive/folders/1YsyUQQBAIxq_syXzE6wxSPaifAwmNxxF)*
-
----
-
-### Databases
-
-| Name                                                                  | Link                                                                                                                 |
-|-----------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
-| CMap                                                                  | https://clue.io/cmap                                                                                                 |
-| COVID-19 main protease                                                | https://www.wwpdb.org/pdb?id=pdb_00006lu7                                                                            |
-| ChemBL                                                                | https://www.ebi.ac.uk/chembl/                                                                                        |
-| DrugBank                                                              | https://www.drugbank.ca/                                                                                             |
-| Folding@Home                                                          | https://github.com/FoldingAtHome/coronavirus                                                                         |
-| Formatted ZINC Database                                               | https://github.com/molecularsets/moses                                                                               |
-| GEO Signatures of Differentially Expressed Genes for Viral Infections | https://amp.pharm.mssm.edu/Harmonizome/dataset/GEO+Signatures+of+Differentially+Expressed+Genes+for+Viral+Infections |
-| NextStrain                                                            | https://nextstrain.org/                                                                                              |
-| ZINC Database                                                         | https://zinc.docking.org/                                                                                            |
-| Dataset Search                                                        | https://blog-google.cdn.ampproject.org/c/s/blog.google/products/search/discovering-millions-datasets-web/amp/        |
-
-### APIs
-
-| Name                 | Link                                                                                                    |
-|----------------------|---------------------------------------------------------------------------------------------------------|
-| CoronaTracker API    | https://api.coronatracker.com                                                                           |
-| COVID-19 Postman API | https://covid-19-apis.postman.com/                                                                      |
-| COVID-19 Rapid API   | https://rapidapi.com/api-sports/api/covid-193?endpoint=apiendpoint_dfb9e52d-bd90-48ec-a571-8b78610a736d |
-
-### Docking Tools
-
-| Name                  | Link                                              |
-|-----------------------|---------------------------------------------------|
-| AutoDock VINA         | http://vina.scripps.edu/                          |
-| PyRX                  | https://pyrx.sourceforge.io/                      |
-
-### Deep Reinforcement Learning Networks
-
-| Name    | Link                                       |
-|---------|--------------------------------------------|
-| DrugEx  | https://github.com/XuhanLiu/DrugEx         |
-| GENTRL  | https://github.com/insilicomedicine/GENTRL |
-| ReLeaSE | https://github.com/isayev/ReLeaSE          |
-
-
-## Awesome perks from our sponsors!
-
-Deployment
-- [DigitalOcean](https://do.co/forkwell)
-
-E-learning
-- [Microsoft Learn](https://aka.ms/learn)
-
-## Help us organize better
-
-Feel free to open issues if you find anything lacking and we appreciate your feedback greatly!
-
-## Community
-
-Join the community!
-- [Discord](https://discord.gg/jFjbXqp)
-- [Forkwell Facebook Group](https://facebook.com/groups/forkwellcoronavirushack/)
+## References
+- https://arxiv.org/abs/1811.00761
+- https://arxiv.org/abs/1503.05140
+- https://www.frontiersin.org/articles/10.3389/fchem.2019.00782/full

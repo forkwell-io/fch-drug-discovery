@@ -1,0 +1,11 @@
+Name,SMILES,Binding Affinity (kcal/mol)
+nafamostat,NC(=N)NC1=CC=C(C=C1)C(=O)OC1=CC=C2C=C(C=CC2=C1)C(N)=N,-8
+cimetropium,C[N+]1(CC2CC2)[C@H]2C[C@@H](C[C@@H]1[C@H]1O[C@@H]21)OC(=O)[C@H](CO)C1=CC=CC=C1,-6.9
+Inositol nicotinate,O=C(O[C@H]1[C@H](OC(=O)C2=CC=CN=C2)[C@@H](OC(=O)C2=CC=CN=C2)[C@H](OC(=O)C2=CC=CN=C2)[C@H](OC(=O)C2=CC=CN=C2)[C@@H]1OC(=O)C1=CC=CN=C1)C1=CC=CN=C1,-5.8
+Podophyllin,COC1=CC(=CC(OC)=C1OC)C1C2C(COC2=O)C(O)C2=CC3=C(OCO3)C=C12.COC1=CC(=CC(OC)=C1OC)C1C2C(COC2=O)C(O)C2=CC3=C(OCO3)C=C12.COC1=CC(=CC(OC)=C1OC)C1C(C(CO)C(O)C2=CC3=C(OCO3)C=C12)C(O)=O.COC1=CC(=CC(OC)=C1OC)C1C(C(CO)C(O)C2=CC3=C(OCO3)C=C12)C(O)=O,-5.7
+asunaprevir,COC1=C2C=CC(Cl)=CC2=C(O[C@@H]2C[C@H](N(C2)C(=O)[C@@H](NC(=O)OC(C)(C)C)C(C)(C)C)C(=O)N[C@@]2(C[C@H]2C=C)C(=O)NS(=O)(=O)C2CC2)N=C1,-5.6
+Sorbinicate,O=C(OC[C@@H](OC(=O)C1=CN=CC=C1)[C@@H](OC(=O)C1=CN=CC=C1)[C@H](OC(=O)C1=CN=CC=C1)[C@H](COC(=O)C1=CN=CC=C1)OC(=O)C1=CN=CC=C1)C1=CN=CC=C1,-5
+isavuconazonium,CNCC(=O)OCC1=CC=CN=C1N(C)C(=O)OC(C)[N+]1=CN(C[C@@](O)([C@@H](C)C2=NC(=CS2)C2=CC=C(C=C2)C#N)C2=C(F)C=CC(F)=C2)N=C1,-4.9
+betacarotene,C\C(\C=C\C=C(/C)\C=C\C1=C(C)CCCC1(C)C)=C/C=C/C=C(\C)/C=C/C=C(\C)/C=C/C1=C(C)CCCC1(C)C,-4.4
+grazoprevir,COC1=CC2=C(C=C1)N=C1CCCCC[C@@H]3C[C@H]3OC(=O)N[C@H](C(=O)N3C[C@@H](C[C@H]3C(=O)N[C@@]3(C[C@H]3C=C)C(=O)NS(=O)(=O)C3CC3)OC1=N2)C(C)(C)C,-4.1
+Voxilaprevir,CC[C@@H]1[C@@H]2CN([C@@H]1C(=O)N[C@@]1(C[C@H]1C(F)F)C(=O)NS(=O)(=O)C1(C)CC1)C(=O)[C@@H](NC(=O)O[C@@H]1C[C@H]1CCCCC(F)(F)C1=NC3=CC=C(OC)C=C3N=C1O2)C(C)(C)C,-3.9
