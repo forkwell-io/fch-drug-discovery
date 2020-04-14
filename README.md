@@ -1,8 +1,15 @@
 # SARS-CoV-2 Drug Discovery using Genetic Algorithm and Deep Learning
 <img width="50%" height="auto" src="./img/covid-19.png">
 
-## Forkwell Coronavirus Hack: Drug Discovery
-This is a submission to the [Forkwell Coronavirus Hack Competition](https://www.forkwell.io/events/forkwell-coronavirus-hack) by Forkwell under the **Drug Discovery** category.
+# Team Details
+Team Name: TaoFuFa
+1. Quek Yao Jing - [https://github.com/Skyquek](https://github.com/Skyquek)
+2. Liew Kok Fu - [https://github.com/Janson-L](https://github.com/Janson-L)
+3. Tang Li Ho - [https://github.com/4036tlh](https://github.com/4036tlh)
+4. Kwong Tung Nan - [https://github.com/kwongtn](https://github.com/kwongtn) 
+
+# Forkwell Coronavirus Hack: Drug Discovery
+This is a submission to the [Forkwell Coronavirus Hack Competition](https://www.forkwell.io/events/forkwell-coronavirus-hack) under the **Drug Discovery** category.
 
 The goal of this category is to create a novel small molecule or find existing drugs on the market that are able to stop or interfere with the coronavirus lifecyle. Therefore, one of the approaches to this is to find out the drugs/ligands that are able to bind with the [coronavirus main protease 6LU7](https://www.rcsb.org/structure/6lu7). 
 
@@ -33,15 +40,13 @@ No project is done without the support of various parties. As such, we would lik
 - [**Matt O'Connor**](https://github.com/mattroconnor)\
 This project is continuous progress from the repository [Deep_Learning_Coronavirus_Cure](https://github.com/mattroconnor/deep_learning_coronavirus_cure) by Matt O Connor who also happened to be our mentor in this hackathon. We would like to thank him for his extensive mentoring and open source coding.
 
-Next, we would like to thank [**jhjensen2**](https://github.com/jensengroup) for his repository - [Graph-Based Genetic Algorithm \[GB-GA\]](https://github.com/jensengroup/GB-GA).  
+- [**jhjensen2**](https://github.com/jensengroup)\
+The [Graph-Based Genetic Algorithm \[GB-GA\]](https://github.com/jensengroup/GB-GA) is one of our main components in this project. We would like to thank him and his team for the repository which enabled us to reduce our time taken to complete the project.  
 The details of his work can be found in his paper - ["A graph-based genetic algorithm and generative model/Monte Carlo tree search for the exploration of chemical space"](https://pubs.rsc.org/en/content/articlelanding/2019/SC/C8SC05372C#!divAbstract).
 
-# Team Details
-Team Name: TaoFuFa
-1. Quek Yao Jing - [https://github.com/Skyquek](https://github.com/Skyquek)
-2. Liew Kok Fu - [https://github.com/Janson-L](https://github.com/Janson-L)
-3. Tang Li Ho - [https://github.com/4036tlh](https://github.com/4036tlh)
-4. Kwong Tung Nan - [https://github.com/kwongtn](https://github.com/kwongtn) 
+- **Dr. Low Tek Yew**\
+We would like to thank Dr. Low Tek Yew for the [extensive introduction to the hackathon](https://www.youtube.com/watch?v=gQ0zSjqi7PU) and the COVID-19 virus characteristics. His explanation of protease and ligand binding is pivotal to our project.  
+
 
 # Requirements
 The requirements are identical to the original repository [mattroconnor/Deep_Learning_Coronavirus_Cure](https://github.com/mattroconnor/deep_learning_coronavirus_cure)
@@ -61,36 +66,35 @@ The requirements are identical to the original repository [mattroconnor/Deep_Lea
 - [Microsoft PowerShell 5.0 or above](https://docs.microsoft.com/en-us/powershell/?view=powershell-7) 
 - [NodeJS](https://nodejs.org/en/)
 
-# Comparisons to the Original Repositories
-In this repository, we introduced a new concept - local Genetic Algorithm (local-GA), an evolutionary computing optimization method. We plan to keep things easy and simple as the [original repository](https://github.com/jensengroup/GB-GA) is well-maintained and is already ready for usage.
+# Introduction
+## local-GA
+In this project, we introduced a new concept - local Genetic Algorithm (local-GA), an evolutionary computing optimization method. We plan to keep things easy and simple as the [original repository](https://github.com/jensengroup/GB-GA) is well-maintained and is already ready for usage.
 
 Our method utilizes cross-over and mutation to search for the most suitable molecule in the chemical space based on its fitness function.
 
-We implement the local-GA in 2 areas:
+We implement the local-GA in 2 areas (details in next section):
 1. Before Transfer Learning 
 1. Before exporting the molecule to the sdf file format
+### **Population: The original molecule**
+- The initial population depends on the molecules we compute before passing it on to the local-GA. 
+- The first local-GA will select of 70 molecules based on `score`, `similarity` and `log(P)`, together with some random selections. 
+- In the second local-GA, the validated molecules from the 5000 generated molecule after transfer learning is used.
 
-This is an overview of our local-GA:
-- **Population: The original molecule**\
-  The initial population depends on the molecules we compute before passing it on to the local-GA. 
-  The first local-GA will select of 70 molecules based on `score`, `similarity` and `logP`, together with some random selections. 
-  In second local-GA, the validated molecules from the 5000 generated molecule after transfer learning is used.
+### **Mating Pool: The molecules we want to pass from generation by generation**
+We select the molecules we need from the population to the mating pool based on the fitness function. 
 
-- **Mating Pool: The molecules we want to pass from generation by generation**\
-  We select the molecules we need from the population to the mating pool. The selection criteria is based on the fitness function. This number is also the number of molecules returned after every generation. 
+### **Cross-Over: Exchange part of 2 molecules to generate 2 new Molecules**
+The system will first randomly select 2 molecules for crossover at ring or non-ring with equal probability. If the two molecules does not have a valid structure for crossover, it will not be used:
+- If a ring structure is selected for crossover, we randomly pick one of the edges of the ring 
+- If a non-ring structure is selected for crossover, one of the single bonds (not in ring) will be selected randomly.
 
-- **Cross-Over: Exchange part of 2 molecules to generate 2 new Molecules**\
-  The system will first randomly select 2 molecules for crossover at ring or non-ring with equal probability. If the two molecules does not have a valid structure for crossover, it will not be used.
-  - If a ring structure is selected for crossover, we randomly pick one of the edges of the ring 
-  - If a non-ring structure is selected for crossover, one of the single bonds (not in ring) will be selected randomly.\
 We then rejoin these broken molecules and combine them to form 2 new molecules. 2 new molecules will be returned from this function.
 
-
-- **Mutation: Mutate part of a molecule**\
-  The molecule will undergo 7 processes separately and a random position on the molecule will be selected to do mutation by the function based on their requirements:
+### **Mutation: Mutate part of a molecule**
+The molecule will undergo 7 processes separately and a random position on the molecule will be selected to do mutation by the function based on their requirements:
 
   - `insert_atom()`\
-    A random bond will be selected and the bond type will be classified into 3 categories based on their charge: -1, -2, -3, these information are taken into consideration so that the product will have a valid chemical structure.
+    A random bond is selected and classified into 3 categories based on their charge: -1, -2, -3, these information are taken into consideration so that the product will have a valid chemical structure.
   - `change_bond_order()`\
     It gives the new molecule a different shape, while having the same atoms as the original.
   - `delete_cyclic_bond()`\
@@ -106,51 +110,48 @@ We then rejoin these broken molecules and combine them to form 2 new molecules. 
 
   After these 7 processes, one of them will be selected and returned if it is valid.
 
+### **Fitness Function**
+The fitness function is the evaluation criteria in every generation based on the `log(P)` value. According to ["logP — Making Sense of the Value" by Sanjivanjit K. Bhal](https://www.acdlabs.com/download/app/physchem/making_sense.pdf), the oral administration of drug should be lower than `5` and best between `1.35` and `1.80`.
 
-- **Fitness Function:** \
-  The fitness function is the evaluation criteria in every generation
-  The fitness function of the molecule is based on the `logP` value. According to ["LogP — Making Sense of the Value" by Sanjivanjit K. Bhal](https://www.acdlabs.com/download/app/physchem/making_sense.pdf), the oral administration of drug should be lower than `5` and best between `1.35` and `1.80`.
+`log(P)` is used in the pharmaceutical/biotech industries to help understand the behavior of drug molecules in the body. Drug candidates are often screened according to `log(P)` among other criteria, to help guide drug selection and analog optimization. This is because lipophilicity is a major determining factor in a compound’s absorption, distribution in the body, penetration across vital membranes and biological barriers, metabolism and excretion (ADME properties). According to ‘Lipinski’s Rule of 5’ (developed at Pfizer) the `log(P)` of a compound intended for oral administration should be `<5`. A more lipophilic compound:
+
+- Will have low aqueous solubility, compromising bioavailability. If an adequate concentration of a drug cannot be reached or maintained, even the most potent in-vitro substance cannot be an effective drug.
+- May be sequestered by fatty tissue and therefore difficult to excrete; in turn leading to accumulation that will impact the systemic toxicity of the substance.
+- May not be ideal for penetration through certain barriers. A drug targeting the central nervous system (CNS) should ideally have a `log(P)` value around `2`, for oral and intestinal absorption `1.35–1.8`, while a drug intended for sub-lingual absorption should have a `log(P)` value of `>5`.
+
+Not only does `log(P)` help predict the likely transport of a compound around the body. It also affects formulation, dosing, drug clearance, and toxicity. Though it is not the only determining factor in these issues, it plays a critical role in helping scientists limit the liabilities of new drug candidates.
 
 
-  `logP` is used in the pharmaceutical/biotech industries to help understand the behavior of drug molecules in the body. Drug candidates are often screened according to `logP` among other criteria, to help guide drug selection and analog optimization. This is because lipophilicity is a major determining factor in a compound’s absorption, distribution in the body, penetration across vital membranes and biological barriers, metabolism and excretion (ADME properties). According to ‘Lipinski’s Rule of 5’ (developed at Pfizer) the `logP` of a compound intended for oral administration should be `<5`. A more lipophilic compound:
-
-  - Will have low aqueous solubility, compromising bioavailability. If an adequate concentration of a drug cannot be reached or maintained, even the most potent in-vitro substance cannot be an effective drug.
-  - May be sequestered by fatty tissue and therefore difficult to excrete; in turn leading to accumulation that will impact the systemic toxicity of the substance.
-  - May not be ideal for penetration through certain barriers. A drug targeting the central nervous system (CNS) should ideally have a `logP` value around `2`, for oral and intestinal absorption `1.35–1.8`, while a drug intended for sub-lingual absorption should have a `logP` value of `>5`.
-
-  Not only does `logP` help predict the likely transport of a compound around the body. It also affects formulation, dosing, drug clearance, and toxicity. Though it is not the only determining factor in these issues, it plays a critical role in helping scientists limit the liabilities of new drug candidates.
-
-# Approaches
-## Original Approach
-_According to [Deep_Learning_Coronavirus_Cure](https://github.com/mattroconnor/deep_learning_coronavirus_cure)_
+# Methodology
+## Reference Approach - _[mattroconnor/Deep_Learning_Coronavirus_Cure](https://github.com/mattroconnor/deep_learning_coronavirus_cure)_
 
 Global-Generation 0:
 
 1. LSTM-CHEM to train ChEMBL Database
-1. From LSTM CHEM, we predict 10k of data
-1. Check the validation
-1. Compute Tanimoto similarity, select 1000 only
-1. Give ID to the 1000 SMILE, add the HIV, and other drugs SMILE manually…. 
-1. Save all in master table and manually check from PyRX to get the affinity
+1. From LSTM CHEM, 10k molecules were generated.
+1. Validility of molecules were checked.
+1. Compute Tanimoto similarity and select 1000 molecules.
+1. IDs were given to the 1000 SMILE files, while the HIV and other drugs' SMILE files were added manually.
+1. All molecules were saved in the master table and manually checked from PyRX to get the binding affinity.
 
 While each Global-Generation < n, 
 
-7. From the master table (load from Global-Generation before this), we select 
-  - 35 molecules based on score
-  - 5 molecules based on the similarity
-  - 5 molecules based on the weight
-  - 5 molecules based on the random mutation
+7. From the master table (loaded from Global-Generation), we select:
+    - 35 molecules based on score
+    - 5 molecules based on the similarity
+    - 5 molecules based on the weight
+    - 5 molecules based on the random mutation
   
-1) From 55, we do Transfer Learning. We then  generate 5k of data and then perform validation and similarity and generate master table. 
+8. From the 55 generated molecules, transfer learning is done. 5000 molecules are then generated, and undergo similarity and validation test. 5000 molecules were then generated, validated, checked for similarity and finally added to the master table.
 
-## Modified Approaches:
+## Our Approach
 Global-Generation 0:
 1. LSTM-CHEM to train ChEMBL Database
-1. From LSTM CHEM, we predict 10k of data
-1. Check the validation
-1. Compute Tanimoto similarity, select 1000 only
-1. Give ID to the 1000 SMILE, add the HIV, and others drugs SMILE manually…. 
-1. Save all in master table and manually check from PyRX to get the affinity
+1. From LSTM CHEM, we generate 10k molecules.
+1 Validility of molecules were checked.
+1. Compute Tanimoto similarity and select 1000 molecules.
+1. IDs were given to the 1000 SMILE files, while other drugs' SMILE files were added manually.
+1. All molecules were saved in the master table and manually checked from PyRX to get the binding affinity.
 
 While each Global-Generation < n, 
 
@@ -174,21 +175,6 @@ While each Global-Generation < n,
 1. Binding calculation [relevant files and configurations](./scripts/binding) were copied into each folder and the folders were distributed among our group members.
 1. The output files are collected from our group members once its finished processing and compiled into a `.csv` file using [a PowerShell script](./scripts/conversion/conversion.ps1) and [a NodeJS script](./scripts/conversion/convert.js).
 1. The results are interpreted and the process starts from `7` until a satisfactory result is achived or when the tester decides to stop.
-
-# Results
-
-
-1. We then pass the obtained molecules the to local-GA to further obtain 10 molecules that have `logP` of 1.35-1.80.
-1. By using 90 molecule, we perform Transfer Learning and generate 5k of data.
-1. From the 5k of data, we do validation to make sure it is  valid molecule. 
-1. After that, we generate another 50 molecule using local-GA which has logP 1.35-1.8. 
-1. Validate the 50 molecule generated using local-GA and combined with molecule from 9.
-1. Export to sdf and evaluate with PyRX. Note
-
-There are few ideas we think of improving: 
-1. Change the LSTM network to Generative Adversarial Network (GAN), but after discussion we found out that its is not necessary as LSTM is good enough for this project. GAN is computing expensive and requires much more training time. 
-
-2. From the evaluation, we plan to use neural network to perform prediction, but after we think twice we found out that the neural network is just the estimation of the affirnity which is dangerous as its contains errors in the prediction. 
 
 
 # Findings and Analysis
@@ -278,9 +264,15 @@ At Generations 12, we can see 24 molecules that show some good results:
 </br>
 </br>
 
+# Side Notes & Challenges Faced
+## Methodology Discussion
+1. Our group initially intended to use the `Generative Adversarial Network (GAN)` as our neural network instead of the currently used `Long Short Term Memory (LSTM)` network. However after discussion we found out that it may be not necessary to use `GAN`, as `LSTM` is quite good enough while `GAN` is more expensive as it uses more computing power and thus require longer training times.
 
-# Challenges Faced
-We face the challenge of loading the chemical data into the PyRX and compute the binding affirnity. This process is time consuming. 1.5 of data requires 12 hours of training.............JANSON & KWONG
+1. Our group initially wanted to use neural networks to predict protein-ligand binding affinity as stated in the [DLSCORE](https://github.com/sirimullalab/dlscore) repository. However after extensive discussions we decided not to do so, as DLSCORE **only predicts** the binding affinity, which may be dangerous as it may contain errors.
+
+## Computational Implementations
+In our project, we used a combination of software available in the market, including `python`, `NodeJS`, `PyRX`, `AutoDock Vina`, `Open Babel` and `Microsoft PowerShell` to accelerate our processes.
+
 
 # Future work
 Evaluation: 
