@@ -1,8 +1,15 @@
 # COVID-19 Drug Discovery using Genetic Algorithm and Deep Learning
-<img width="50%" height="auto" src="https://github.com/Skyquek/fch-drug-discovery/blob/master/img/covid-19.png">
+<img width="50%" height="auto" src="./img/covid-19.png">
 
-## Forkwell Coronavirus Hack: Drug Discovery
-This is a submission to the [Forkwell Coronavirus Hack Competition](https://www.forkwell.io/events/forkwell-coronavirus-hack) by Forkwell under the **Drug Discovery** category.
+# Team Details
+Team Name: TaoFuFa
+1. Quek Yao Jing - [https://github.com/Skyquek](https://github.com/Skyquek)
+2. Liew Kok Fu - [https://github.com/Janson-L](https://github.com/Janson-L)
+3. Tang Li Ho - [https://github.com/4036tlh](https://github.com/4036tlh)
+4. Kwong Tung Nan - [https://github.com/kwongtn](https://github.com/kwongtn) 
+
+# Forkwell Coronavirus Hack: Drug Discovery
+This is a submission to the [Forkwell Coronavirus Hack Competition](https://www.forkwell.io/events/forkwell-coronavirus-hack) under the **Drug Discovery** category.
 
 The goal of this category is to create a novel small molecule or find existing drugs on the market that are able to stop or interfere with the coronavirus lifecyle. Therefore, one of the approaches to this is to find out the drugs/ligands that are able to bind with the [coronavirus main protease 6LU7](https://www.rcsb.org/structure/6lu7). 
 
@@ -40,13 +47,6 @@ The details of his work can be found in his paper - ["A graph-based genetic algo
 - **Dr. Low Tek Yew**\
 We would like to thank Dr. Low Tek Yew for the [extensive introduction to the hackathon](https://www.youtube.com/watch?v=gQ0zSjqi7PU) and the COVID-19 virus characteristics. His explanation of protease and ligand binding is pivotal to our project.  
 
-
-# Team Details
-Team Name: TaoFuFa
-1. Quek Yao Jing - [https://github.com/Skyquek](https://github.com/Skyquek)
-2. Liew Kok Fu - [https://github.com/Janson-L](https://github.com/Janson-L)
-3. Tang Li Ho - [https://github.com/4036tlh](https://github.com/4036tlh)
-4. Kwong Tung Nan - [https://github.com/kwongtn](https://github.com/kwongtn) 
 
 # Requirements
 The requirements are identical to the original repository [mattroconnor/Deep_Learning_Coronavirus_Cure](https://github.com/mattroconnor/deep_learning_coronavirus_cure)
