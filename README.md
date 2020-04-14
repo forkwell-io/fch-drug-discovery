@@ -294,10 +294,12 @@ As the workload has been sharded, multiple instances of the docking program can 
 We therefore used this knowledge to provision a cloud server containing 16 cores. In total with our group members, this meant that we had 66 CPU cores at our disposal. 
 
 
-# Future work
-Evaluation: 
-1) Cloud Computing: ...................KWONG
-2) .....JANSON or KWONG (add what method which can speed up the progress)
+# Future work 
+1. Increase the number of generations  
+1. Change local-GA parameters
+1. Change the base network to Generative Adversarial Network (GAN)
+1. To compute binding affinity for all drugs in market(~450,000) and using the results to generate gen0
+1. GPU based docking for faster evaluation
 
 # Reference
 1. https://drugbank.s3-us-west-2.amazonaws.com/assets/blog/COVID-19_Web.pdf
