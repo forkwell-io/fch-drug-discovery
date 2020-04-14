@@ -190,7 +190,7 @@ There are few ideas we think of improving:
 
 2. From the evaluation, we plan to use neural network to perform prediction, but after we think twice we found out that the neural network is just the estimation of the affirnity which is dangerous as its contains errors in the prediction. 
 
-At Generations 12, we can see 32 molecules that show some good results:
+At Generations 12, we can see 24 molecules that show some good results:
 |ID  |Generation|Molecule in Smile                                                                                               |source           |weight           |logP               |score|score_best|score_avg          |similarity_to_hiv_inhibitors|similarity_to_remdesivir|
 |----|---|----------------------------------------------------------------------------------------------------|-----------------|-----------------|-------------------|-----|----------|-------------------|----------------------------|------------------------|
 |AAWE|12 |CC1C=CC=C(C(=O)Nc2nnnn2N2CCN(C(=O)Nc3nnnnn3)C2=O)c2ccccc2-c2ccccc2-c2ccccc2-c2ccccc21               |generated        |703.7270000000002|4.950200000000005  |-13.6|-13.6     |-12.933333333333334|0.4517169321727265          |0.6076406814661848      |
