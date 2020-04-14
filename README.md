@@ -68,6 +68,37 @@ The requirements are identical to the original repository [mattroconnor/Deep_Lea
 - [Microsoft PowerShell 5.0 or above](https://docs.microsoft.com/en-us/powershell/?view=powershell-7) 
 - [NodeJS](https://nodejs.org/en/)
 
+# How to use
+\* You may want to finish reading the repo before starting.
+## Initial generation
+1. Run 'Initial Network.ipynb' to get generation 0 SMILES.
+
+## For every generation (including initial)
+2. Run 'Evaluation and Refinement-localGA.ipynb'
+
+### Sharding the sdf files
+3. In PyRx, load the sdf files and minimize the molecules, then export it to pdbqt file format.
+1. Copy out the `.pdbqt` files to a seperate folder and run the sharding script (`/scripts/folderSplitter/shard.ps1`).
+1. Copy everything from the `/scripts/binding` folder to each generated folder.
+1. The folder is ready for distribution.
+
+### Computing the binding affinity
+7. For each folder, run `PowerShell` in it and run the `/scripts/binding/binding.ps1` file.
+1. The validation results should be in the `output` folder.
+
+### Consolidation
+9. When processing is done, consolidate all the files in each output folder, then copy files in`/scripts/conversion` to it.
+1. Run `PowerShell` in it and run the `/scripts/binding/binding.ps1` file.
+1. The compute results would be consolidated in the `results.csv` file of the same folder.
+
+A generation is complete, you may go to `2` to obtain the next gen.
+
+### Post processing (optional, but recommended to do for last gen)
+12. Run `Final Results.ipynb` to visualize the data and filter up the best molecule. 
+1. A file will be created in `generations/master_results_table_final.csv`. This file can be validated by bioinformatics.
+
+
+
 # Introduction
 ## local-GA
 In this project, we introduced a new concept - local Genetic Algorithm (local-GA), an evolutionary computing optimization method. We plan to keep things easy and simple as the [original repository](https://github.com/jensengroup/GB-GA) is well-maintained and is already ready for usage.
