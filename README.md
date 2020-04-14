@@ -3,7 +3,7 @@
 
 ## Introduction
 <div style="text-align: justify">
-Drug development is generally arduous, costly, and the success rate is dauntingly low. Thus, the identification of drug-target interactions (DTIs) has become a crucial step in early stages of drug discovery. Experimental confirmation of new DTIs is not an easy task, as in vitro experiments are laborious and time-consuming. Even if a confirmed DTI has been used for developing a new drug, the approval for human use of such new drugs can take many years and estimated cost may run over a billion US dollars (Dimasi et al., 2003). Hence, we developed a deep learning model to predict the $pK_{d}$ of drug-target pair to make a fast scan through currently approved drugs to discover candidate drugs for nCoV-19. Validating the readily available and approved drugs is more practical to curb the harsh situation in the meantime of waiting for development of de novo drugs.
+Drug development is generally arduous, costly, and the success rate is dauntingly low. Thus, the identification of drug-target interactions (DTIs) has become a crucial step in early stages of drug discovery. Experimental confirmation of new DTIs is not an easy task, as in vitro experiments are laborious and time-consuming. Even if a confirmed DTI has been used for developing a new drug, the approval for human use of such new drugs can take many years and estimated cost may run over a billion US dollars (Dimasi et al., 2003). Hence, we developed a deep learning model to predict the pK<sub>d</sub> of drug-target pair to make a fast scan through currently approved drugs to discover candidate drugs for nCoV-19. Validating the readily available and approved drugs is more practical to curb the harsh situation in the meantime of waiting for development of de novo drugs.
 </div>
 
 ## Directory Description
@@ -31,7 +31,7 @@ Drug development is generally arduous, costly, and the success rate is dauntingl
 - **protvec_training.ipynb**
   - training protvec for protein sequence representation
 - **purple_teletubbies_training.ipynb**
-  - training the regressor for $pK_{d}$ prediction
+  - training the regressor for pK<sub>d</sub> prediction
 - **smilesvec_training1.ipynb**
   - training smilesvec for ligand representation (we use kaggle notebook and there is limited time quota, so we split it into two training)
 - **smilesvec_training2.ipynb**
