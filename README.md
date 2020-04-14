@@ -75,7 +75,7 @@ Alvin Wong Guan Sheng <br>
 - no domain knowledge XD
 - all the works are not done on local machine, so we might write wrongly the file paths in our submission
 
-## Reference
+## References
 - https://arxiv.org/abs/1811.00761
 - https://arxiv.org/abs/1503.05140
 - https://www.frontiersin.org/articles/10.3389/fchem.2019.00782/full
