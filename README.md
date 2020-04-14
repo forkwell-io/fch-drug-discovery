@@ -1,4 +1,4 @@
-# COVID-19 Drug Discovery using Genetic Algorithm and Deep Learning
+# SARS-CoV-2 Drug Discovery using Genetic Algorithm and Deep Learning
 <img width="50%" height="auto" src="./img/covid-19.png">
 
 # Team Details
@@ -37,7 +37,7 @@ Our team would like to thank all parties, including but not limited to the forkw
 
 No project is done without the support of various parties. As such, we would like to specially shoutout to the following amazing individuals:
 
-- [**Matt O Connor**](https://github.com/mattroconnor)\
+- [**Matt O'Connor**](https://github.com/mattroconnor)\
 This project is continuous progress from the repository [Deep_Learning_Coronavirus_Cure](https://github.com/mattroconnor/deep_learning_coronavirus_cure) by Matt O Connor who also happened to be our mentor in this hackathon. We would like to thank him for his extensive mentoring and open source coding.
 
 - [**jhjensen2**](https://github.com/jensengroup)\
@@ -162,6 +162,7 @@ While each Global-Generation < n,
     | Similarity  | 10 | 10 |
     | log(P)      | 10 | 65 |
     | Weights     | 5  | 10 |
+    | Random      | 5  | 5  |
 
 1. We then pass the obtained molecules the to local-GA to further obtain 10 molecules that have `log(P)` of 1.35-1.80.
 1. By using 90 molecules, we perform `transfer learning` to generate 5,000 molecules.
