@@ -222,16 +222,62 @@ At Generations 12, we can see 24 molecules that show some good results:
 |AACW|12 |CC1C=CCCC(C(=O)Nc2nnnn2C2=CC=C(C(=O)Nc3nnnnn3)C2=O)c2ccccc2-c2ccccc2-c2ccccc21                      |generated        |637.6640000000002|4.146600000000002  |-12.1|-12.1     |-11.533333333333333|0.44573238812562777         |0.5976116303219107      |
 |AABM|12 |CC=CCNc1nnnn1-c1ccccc1                                                                              |genetic_algorithm|215.26           |1.6503             |-12.3|-6.7      |-5.7555555555555555|0.19191909320789163         |0.21226142278773857     |
 
+</br>
 
-Below shows some data visualization of the generation from gen 0 to gen 12:
+## Below shows some data visualization of the generation from gen 0 to gen 12:
 
-<img src="./img/line_plot_score.svg">
-<img src="./img/line_plot_score_logp.svg">
-<img src="./img/lm_plot_score_edible.svg">
-<img src="./img/box_plot_score.svg">
-<img src="./img/box_plot_logp.svg">
-<img src="./img/violin_plot_score.svg">
-<img src="./img/kde_joinplot_score.svg">
+<div align="center">
+  <img width="50%" src="./img/line_plot_score.svg">
+</div>
+<p align="center">
+  The score converge from -8.5 in generation 0 to -10 and below which is a good sign.
+</p>
+
+<div align="center">
+  <img width="90%" src="./img/line_plot_score_logp.svg">
+</div>
+<p align="center">
+  The trend of logP and score is going down which show that our hypothesis is correct.
+</p>
+
+<div align="center">
+  <img width="70%" src="./img/lm_plot_score_edible.svg">
+</div>
+<p align="center">
+  The graph show that the trend of logP < 5(Edible) are going down which indicate that we will get better and better results in later generations.
+</p>
+
+<div align="center">
+  <img width="100%" src="./img/box_plot_score.svg">
+</div>
+<p align="center">
+  We can see that the coverage of score is getting wier and wider from generation to generation. 
+</p>
+
+<div align="center">
+  <img width="100%" src="./img/box_plot_logp.svg">
+</div>
+<p align="center">
+  We can see that the coverage of logP is getting wider and wider from generation to generation.  
+</p>
+
+<div align="center">
+  <img width="100%" src="./img/violin_plot_score.svg">
+</div>
+<p align="center">
+  The width of the violin plot is getting smaller and smaller throught the generation.
+</p>
+
+<div align="center">
+  <img width="60%" src="./img/kde_joinplot_score.svg">
+</div>
+<p align="center">
+  The graphs show a lot of data generated have score around -7.5 to -9.
+</p>
+
+</br>
+</br>
+
 
 # Challenges Faced
 We face the challenge of loading the chemical data into the PyRX and compute the binding affirnity. This process is time consuming. 1.5 of data requires 12 hours of training.............JANSON & KWONG
