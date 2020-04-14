@@ -1,5 +1,5 @@
-# COVID-19 Drug Discovery using Genetic Algorithm and Deep Learning
-<img width="50%" height="auto" src="https://github.com/Skyquek/fch-drug-discovery/blob/master/img/covid-19.png">
+# SARS-CoV-2 Drug Discovery using Genetic Algorithm and Deep Learning
+<img width="50%" height="auto" src="./img/covid-19.png">
 
 ## Forkwell Coronavirus Hack: Drug Discovery
 This is a submission to the [Forkwell Coronavirus Hack Competition](https://www.forkwell.io/events/forkwell-coronavirus-hack) by Forkwell under the **Drug Discovery** category.
@@ -28,7 +28,10 @@ Below are samples of existing drugs that have been experimented with the coronav
 # Acknowledgement
 Our team would like to thank all parties, including but not limited to the forkwell coronavirus hack organizing team and mentors for giving us the chances to work on this project while contributing to the COVID-19 outbreak. 
 
-This work is continuous progress from the repository [Deep_Learning_Coronavirus_Cure](https://github.com/mattroconnor/deep_learning_coronavirus_cure) by [Matt O Connor](https://github.com/mattroconnor) who also happened to be our mentor in this hackathon. As such, we would like to thank him for his extensive mentoring and code.
+No project is done without the support of various parties. As such, we would like to specially shoutout to the following amazing individuals:
+
+- [**Matt O'Connor**](https://github.com/mattroconnor)\
+This project is continuous progress from the repository [Deep_Learning_Coronavirus_Cure](https://github.com/mattroconnor/deep_learning_coronavirus_cure) by Matt O Connor who also happened to be our mentor in this hackathon. We would like to thank him for his extensive mentoring and open source coding.
 
 Next, we would like to thank [**jhjensen2**](https://github.com/jensengroup) for his repository - [Graph-Based Genetic Algorithm \[GB-GA\]](https://github.com/jensengroup/GB-GA).  
 The details of his work can be found in his paper - ["A graph-based genetic algorithm and generative model/Monte Carlo tree search for the exploration of chemical space"](https://pubs.rsc.org/en/content/articlelanding/2019/SC/C8SC05372C#!divAbstract).
@@ -151,12 +154,29 @@ Global-Generation 0:
 
 While each Global-Generation < n, 
 
-7. From the master table (load from Global-Generation before this), we select the number of `x` based on:
-    - Score
-    - Similarity
-    - log(P)
-    - Weights
-    - Generation
+7. From the master table (loaded from Global-Generation), we select the molecules based on the following attributes with respect to the proportions:
+    | Attribute | No of Selections (Generations 0-10) | No of Selections (In generations 11 & 12) |
+    | --- | :---: | :---: |
+    | Score       | 35 | 55 |
+    | Similarity  | 10 | 10 |
+    | log(P)      | 10 | 65 |
+    | Weights     | 5  | 10 |
+    | Random      | 5  | 5  |
+
+1. We then pass the obtained molecules the to local-GA to further obtain 10 molecules that have `log(P)` of 1.35-1.80.
+1. By using 90 molecules, we perform `transfer learning` to generate 5,000 molecules.
+1. We then do validation on the 5000 generated molecules to discard the invalid molecules.
+1. 50 extra molecules are then generated using local-GA which has a `log(P)` value of `1.35-1.8`. 
+1. The 50 molecules are validated and combined with molecule from `Step 10`.
+1. The molecules were then exported to the sdf file format.
+1. `PyRX` was used to minimize the energy of the molecules and export the `.sdf` file into `.pdbqt` files.
+1. The files were then organized into folders (depending on how many parallel sessions we want to run) using [a PowerShell script](./scripts/folderSplitter/shard.ps1).
+1. Binding calculation [relevant files and configurations](./scripts/binding) were copied into each folder and the folders were distributed among our group members.
+1. The output files are collected from our group members once its finished processing and compiled into a `.csv` file using [a PowerShell script](./scripts/conversion/conversion.ps1) and [a NodeJS script](./scripts/conversion/convert.js).
+1. The results are interpreted and the process starts from `7` until a satisfactory result is achived or when the tester decides to stop.
+
+# Results
+
 
 1. We then pass the obtained molecules the to local-GA to further obtain 10 molecules that have `logP` of 1.35-1.80.
 1. By using 90 molecule, we perform Transfer Learning and generate 5k of data.
