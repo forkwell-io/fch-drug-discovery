@@ -190,7 +190,12 @@ There are few ideas we think of improving:
 
 2. From the evaluation, we plan to use neural network to perform prediction, but after we think twice we found out that the neural network is just the estimation of the affirnity which is dangerous as its contains errors in the prediction. 
 
+
+# Findings and Analysis
+
 At Generations 12, we can see 24 molecules that show some good results:
+
+
 |ID  |Generation|Molecule in Smile                                                                                               |source           |weight           |logP               |score|score_best|score_avg          |similarity_to_hiv_inhibitors|similarity_to_remdesivir|
 |----|---|----------------------------------------------------------------------------------------------------|-----------------|-----------------|-------------------|-----|----------|-------------------|----------------------------|------------------------|
 |AAWE|12 |CC1C=CC=C(C(=O)Nc2nnnn2N2CCN(C(=O)Nc3nnnnn3)C2=O)c2ccccc2-c2ccccc2-c2ccccc2-c2ccccc21               |generated        |703.7270000000002|4.950200000000005  |-13.6|-13.6     |-12.933333333333334|0.4517169321727265          |0.6076406814661848      |
@@ -217,6 +222,16 @@ At Generations 12, we can see 24 molecules that show some good results:
 |AACW|12 |CC1C=CCCC(C(=O)Nc2nnnn2C2=CC=C(C(=O)Nc3nnnnn3)C2=O)c2ccccc2-c2ccccc2-c2ccccc21                      |generated        |637.6640000000002|4.146600000000002  |-12.1|-12.1     |-11.533333333333333|0.44573238812562777         |0.5976116303219107      |
 |AABM|12 |CC=CCNc1nnnn1-c1ccccc1                                                                              |genetic_algorithm|215.26           |1.6503             |-12.3|-6.7      |-5.7555555555555555|0.19191909320789163         |0.21226142278773857     |
 
+
+Below shows some data visualization of the generation from gen 0 to gen 12:
+
+<img src="./img/line_plot_score.svg">
+<img src="./img/line_plot_score_logp.svg">
+<img src="./img/lm_plot_score_edible.svg">
+<img src="./img/box_plot_score.svg">
+<img src="./img/box_plot_logp.svg">
+<img src="./img/violin_plot_score.svg">
+<img src="./img/kde_joinplot_score.svg">
 
 # Challenges Faced
 We face the challenge of loading the chemical data into the PyRX and compute the binding affirnity. This process is time consuming. 1.5 of data requires 12 hours of training.............JANSON & KWONG
