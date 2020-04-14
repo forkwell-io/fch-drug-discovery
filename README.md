@@ -6,7 +6,7 @@
 # Team Details
 Team Name: TaoFuFa
 1. Quek Yao Jing - [https://github.com/Skyquek](https://github.com/Skyquek)
-2. Liew Kok Fu - [https://github.com/Janson-L](https://github.com/Janson-L)
+2. Liew Kok Foo - [https://github.com/Janson-L](https://github.com/Janson-L)
 3. Tang Li Ho - [https://github.com/4036tlh](https://github.com/4036tlh)
 4. Kwong Tung Nan - [https://github.com/kwongtn](https://github.com/kwongtn) 
 
