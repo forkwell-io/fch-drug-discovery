@@ -271,7 +271,25 @@ At Generations 12, we can see 24 molecules that show some good results:
 1. Our group initially wanted to use neural networks to predict protein-ligand binding affinity as stated in the [DLSCORE](https://github.com/sirimullalab/dlscore) repository. However after extensive discussions we decided not to do so, as DLSCORE **only predicts** the binding affinity, which may be dangerous as it may contain errors.
 
 ## Computational Implementations
-In our project, we used a combination of software available in the market, including `python`, `NodeJS`, `PyRX`, `AutoDock Vina`, `Open Babel` and `Microsoft PowerShell` to accelerate our processes.
+In our project, we used a combination of software available in the market, including `python`, `NodeJS`, `PyRX`, `AutoDock Vina`, `Open Babel` and `Microsoft PowerShell` to accelerate our processes.\
+The total speedup is about 5-6 times, accelerating a 10 hour workload to about less than 2 hours.
+
+### Sharding of workload
+Initially during our project, our group had to run all conversion and docking on the same computer. As PyRx is quite unstable, we often encounter multiple crashes that forced us to re-run that generation.\
+After some discussions, we seperated the doking process into 3 parts: 
+- Converting\
+    Where the sdf files are being minimized and converted into `.pdbqt` files using PyRx. This process is quite quick and stable, and as such we did not find an alternative.
+
+- Sharding\
+    Where the converted pdbqt files were seperated into multiple folders via [a PowerShell script](./scripts/folderSplitter/shard.ps1).\
+    The folders were then compressed,, [relevant files](./scripts/binding) included and distributed to the cloud or our group members.
+
+- Converting\
+    After the computing is complete, the outputs (custom extension - `.pdbqt_out`) are consolidated. [A PowerShell script](./scripts/conversion/conversion.ps1) calls a [NodeJS Script](./scripts/conversion/convert.js) to obtain the `binding affinity` from the files and writes it into [a csv file](./scripts/conversion/results.csv).
+
+### Usage of cloud computing
+As the workload has been sharded, multiple instances of the docking program can be run at once. According to our observations, the `exhaustiveness` number in the AutoDock Vina process corresponds to the number of CPU cores used. \
+We therefore used this knowledge to provision a cloud server containing 16 cores. In total with our group members, this meant that we had 66 CPU cores at our disposal. 
 
 
 # Future work
