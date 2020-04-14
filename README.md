@@ -1,8 +1,15 @@
 # COVID-19 Drug Discovery using Genetic Algorithm and Deep Learning
-<img width="50%" height="auto" src="https://github.com/Skyquek/fch-drug-discovery/blob/master/img/covid-19.png">
+<img width="50%" height="auto" src="./img/covid-19.png">
 
-## Forkwell Coronavirus Hack: Drug Discovery
-This is a submission to the [Forkwell Coronavirus Hack Competition](https://www.forkwell.io/events/forkwell-coronavirus-hack) by Forkwell under the **Drug Discovery** category.
+# Team Details
+Team Name: TaoFuFa
+1. Quek Yao Jing - [https://github.com/Skyquek](https://github.com/Skyquek)
+2. Liew Kok Fu - [https://github.com/Janson-L](https://github.com/Janson-L)
+3. Tang Li Ho - [https://github.com/4036tlh](https://github.com/4036tlh)
+4. Kwong Tung Nan - [https://github.com/kwongtn](https://github.com/kwongtn) 
+
+# Forkwell Coronavirus Hack: Drug Discovery
+This is a submission to the [Forkwell Coronavirus Hack Competition](https://www.forkwell.io/events/forkwell-coronavirus-hack) under the **Drug Discovery** category.
 
 The goal of this category is to create a novel small molecule or find existing drugs on the market that are able to stop or interfere with the coronavirus lifecyle. Therefore, one of the approaches to this is to find out the drugs/ligands that are able to bind with the [coronavirus main protease 6LU7](https://www.rcsb.org/structure/6lu7). 
 
@@ -41,13 +48,6 @@ The details of his work can be found in his paper - ["A graph-based genetic algo
 We would like to thank Dr. Low Tek Yew for the [extensive introduction to the hackathon](https://www.youtube.com/watch?v=gQ0zSjqi7PU) and the COVID-19 virus characteristics. His explanation of protease and ligand binding is pivotal to our project.  
 
 
-# Team Details
-Team Name: TaoFuFa
-1. Quek Yao Jing - [https://github.com/Skyquek](https://github.com/Skyquek)
-2. Liew Kok Fu - [https://github.com/Janson-L](https://github.com/Janson-L)
-3. Tang Li Ho - [https://github.com/4036tlh](https://github.com/4036tlh)
-4. Kwong Tung Nan - [https://github.com/kwongtn](https://github.com/kwongtn) 
-
 # Requirements
 The requirements are identical to the original repository [mattroconnor/Deep_Learning_Coronavirus_Cure](https://github.com/mattroconnor/deep_learning_coronavirus_cure)
 
@@ -66,7 +66,7 @@ The requirements are identical to the original repository [mattroconnor/Deep_Lea
 - [Microsoft PowerShell 5.0 or above](https://docs.microsoft.com/en-us/powershell/?view=powershell-7) 
 - [NodeJS](https://nodejs.org/en/)
 
-# Methodology
+# Introduction
 ## local-GA
 In this project, we introduced a new concept - local Genetic Algorithm (local-GA), an evolutionary computing optimization method. We plan to keep things easy and simple as the [original repository](https://github.com/jensengroup/GB-GA) is well-maintained and is already ready for usage.
 
@@ -122,7 +122,7 @@ The fitness function is the evaluation criteria in every generation based on the
 Not only does `log(P)` help predict the likely transport of a compound around the body. It also affects formulation, dosing, drug clearance, and toxicity. Though it is not the only determining factor in these issues, it plays a critical role in helping scientists limit the liabilities of new drug candidates.
 
 
-# Approach
+# Methodology
 ## Reference Approach - _[mattroconnor/Deep_Learning_Coronavirus_Cure](https://github.com/mattroconnor/deep_learning_coronavirus_cure)_
 
 Global-Generation 0:
@@ -175,20 +175,19 @@ While each Global-Generation < n,
 1. The output files are collected from our group members once its finished processing and compiled into a `.csv` file using [a PowerShell script](./scripts/conversion/conversion.ps1) and [a NodeJS script](./scripts/conversion/convert.js).
 1. The results are interpreted and the process starts from `7` until a satisfactory result is achived or when the tester decides to stop.
 
+# Results
 
-1. We then pass the obtained molecules the to local-GA to further obtain 10 molecules that have `logP` of 1.35-1.80.
-1. By using 90 molecule, we perform Transfer Learning and generate 5k of data.
-1. From the 5k of data, we do validation to make sure it is  valid molecule. 
-1. After that, we generate another 50 molecule using local-GA which has logP 1.35-1.8. 
-1. Validate the 50 molecule generated using local-GA and combined with molecule from 9.
-1. Export to sdf and evaluate with PyRX. Note
 
-There are few ideas we think of improving: 
-1. Change the LSTM network to Generative Adversarial Network (GAN), but after discussion we found out that its is not necessary as LSTM is good enough for this project. GAN is computing expensive and requires much more training time. 
+# Side Notes
+## Methodology Discussion
+1. Our group initially intended to use the `Generative Adversarial Network (GAN)` as our neural network instead of the currently used `Long Short Term Memory (LSTM)` network. However after discussion we found out that it may be not necessary to use `GAN`, as `LSTM` is quite good enough while `GAN` is more expensive as it uses more computing power and thus require longer training times.
 
-2. From the evaluation, we plan to use neural network to perform prediction, but after we think twice we found out that the neural network is just the estimation of the affirnity which is dangerous as its contains errors in the prediction. 
+1. Our group initially wanted to use neural networks to predict protein-ligand binding affinity as stated in the [DLSCORE](https://github.com/sirimullalab/dlscore) repository. However after extensive discussions we decided not to do so, as DLSCORE **only predicts** the binding affinity, which may be dangerous as it may contain errors.
 
-# Challenges Faced
+## Computational Implementations
+In our project, we used a combination of software available in the market, including `python`, `NodeJS`, `PyRX`, `AutoDock Vina`, `Open Babel` and `Microsoft PowerShell` to accelerate our processes.
+
+## Challenges Faced
 We face the challenge of loading the chemical data into the PyRX and compute the binding affirnity. This process is time consuming. 1.5 of data requires 12 hours of training.............JANSON & KWONG
 
 # Future work
