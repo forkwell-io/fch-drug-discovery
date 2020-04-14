@@ -1,7 +1,0 @@
-pip install deepsmiles
-conda install -c conda-forge rdkit
-pip install biovec
-
-
-import-smilesvec/smilesvec
-drugex-model/model.py
