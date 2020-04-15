@@ -88,7 +88,7 @@ The requirements are identical to the original repository [mattroconnor/Deep_Lea
 
 ### Consolidation
 9. When processing is done, consolidate all the files in each output folder, then copy files in`/scripts/conversion` to it.
-1. Run `PowerShell` in it and run the `/scripts/binding/binding.ps1` file.
+1. Run `PowerShell` in it and run the `/scripts/conversion/conversion.ps1` file.
 1. The compute results would be consolidated in the `results.csv` file of the same folder.
 
 A generation is complete, you may go to `2` to obtain the next gen.
