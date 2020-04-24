@@ -276,7 +276,7 @@ Table below shows the first 30 molecules obtained in generation 17:
 </p>
 
 <div align="center">
-  <img width="50%" src="./img/violin_plot_score.svg">
+  <img width="100%" src="./img/violin_plot_score.svg">
 </div>
 <p align="center">
   Figure 2 shows the violin plot from generation 1 to generation 17.
