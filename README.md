@@ -33,6 +33,8 @@ Below are samples of existing drugs that have been experimented with the coronav
 |   Darunavir | -7.2     |
 |   TMC-310911 | -8.9     |
 
+Table 1.1 shows the existing drugs with their respective binding score.
+
 
 # Acknowledgement
 Our team would like to thank all parties, including but not limited to the forkwell coronavirus hack organizing team and mentors for giving us the chances to work on this project while contributing to the COVID-19 outbreak. 
@@ -214,44 +216,63 @@ While each Global-Generation < n,
 
 # Findings and Analysis
 
-At Generations 12, we can see 24 molecules that show some good results:
+At Generations 17, we had obtain 63 molecule, which is ways more than the in generation 12 that hold only 24 molecules. Our chemical table files can be obtained and download at [here](./generations/genfinal.sdf).
 
 
-|ID  |Generation|Molecule in Smile                                                                                               |source           |weight           |logP               |score|score_best|score_avg          |similarity_to_hiv_inhibitors|similarity_to_remdesivir|
-|----|---|----------------------------------------------------------------------------------------------------|-----------------|-----------------|-------------------|-----|----------|-------------------|----------------------------|------------------------|
-|AAWE|12 |CC1C=CC=C(C(=O)Nc2nnnn2N2CCN(C(=O)Nc3nnnnn3)C2=O)c2ccccc2-c2ccccc2-c2ccccc2-c2ccccc21               |generated        |703.7270000000002|4.950200000000005  |-13.6|-13.6     |-12.933333333333334|0.4517169321727265          |0.6076406814661848      |
-|ABQA|12 |CC1C=CC=C(C(=O)Nc2nnnn2N2CCN(C(=O)Nc3nnnnn3)C2=O)c2ccccc2C2=CC=C(C(=O)Nc3nnnnn3)C2c2ccccc2-c2ccccc21|generated        |815.7789999999997|2.3371000000000013 |-13.3|-13.3     |-12.377777777777778|0.48794306857409825         |0.6809908998988877      |
-|AANY|12 |CC1CCC(C(=O)Nc2nnnn2N2CCN(C(=O)Nc3nnnnn3)C2=O)c2ccccc2-c2ccccc2-c2ccccc2-c2ccccc21                  |generated        |693.7320000000002|4.874400000000004  |-13.1|-13.1     |-11.988888888888889|0.44936439807407236         |0.5851619644723093      |
-|ABFU|12 |CC1C=CCCC(C(=O)Nc2nnnn2N2CCN(C(=O)Nc3nnnnn3)C2=O)c2ccccc2-c2ccccc2-c2ccccc2C1=O                     |generated        |671.6820000000001|3.4789000000000017 |-13.0|-13.0     |-12.211111111111112|0.45617840012510985         |0.6038421599169262      |
-|ABDR|12 |CC1C=CCCC(C(=O)Nc2nnnn2-c2ccccc2C2=CC=C(C(=O)Nc3nnnnn3)C2=O)c2ccccc21                               |generated        |561.5660000000003|2.3443             |-12.8|-12.8     |-11.5              |0.44492407555879365         |0.5975168132436627      |
-|AAPV|11 |CC1C=CC(C(=O)Nc2nnnn2N2CCN(C(=O)Nc3nnnnn3)C2=O)c2ccccc2-c2ccccc2-c2ccccc2-c2ccccc21                 |generated        |691.7160000000001|4.650400000000004  |-12.8|-12.8     |-12.177777777777777|0.44518704490878475         |0.5804268610098907      |
-|AAPM|11 |CC1C=CC(C(=O)Nc2nnnn2-c2ccccc2C2=CC=C(C(=O)Nc3nnnnn3)C2=O)c2ccccc2-c2ccccc21                        |generated        |609.6100000000002|3.2311000000000005 |-12.8|-12.8     |-11.61111111111111 |0.46226260431847693         |0.6194144838212635      |
-|AAIW|12 |CC1C=CCC(C(=O)Nc2nnnn2-c2ccccc2C2=CC=C(C(=O)Nc3nnnnn3)C2=O)c2ccccc21                                |generated        |547.5390000000003|1.954199999999999  |-12.7|-12.7     |-11.488888888888889|0.44631758041361463         |0.5996892801657172      |
-|ABGM|12 |CC1C=CC(C(=O)Nc2nnnn2N2CCN(C(=O)Nc3nnnnn3)C2=O)C(=O)Nc2ccccc2-c2ccccc2-c2ccccc21                    |generated        |658.6430000000001|2.454500000000001  |-12.7|-12.7     |-11.655555555555555|0.4561191762584126          |0.6072727272727273      |
-|ABQM|12 |Cc1ccc(C(=O)Nc2nnnn2-c2ccccc2C2=CC=C(C(=O)Nc3nnnnn3)C2=O)c2ccccc12                                  |generated        |531.4960000000002|1.8824199999999995 |-12.6|-12.6     |-11.344444444444445|0.437743871258627           |0.575                   |
-|ABZM|12 |CC1=CCCC(NC(=O)c2nnnn2N2CCN(C(=O)Nc3nnnnn3)C2=O)c2ccccc2-c2ccccc2-c2ccccc2-c2ccccc21                |generated        |705.7430000000003|4.9230000000000045 |-12.6|-12.6     |-11.899999999999999|0.46253913284608356         |0.6176470588235294      |
-|ABFA|12 |CC1=CC=CCCC(C(=O)Nc2nnnn2N2CCN(C(=O)Nc3nnnnn3)C2=O)c2ccccc2-c2ccccc2-c2ccccc21                      |generated        |655.6830000000002|4.063400000000003  |-12.6|-12.6     |-12.255555555555555|0.45622126578118544         |0.6059190031152648      |
-|AALZ|12 |CC1=CC=C(C(=O)Nc2nnnn2N2CCN(C(=O)Nc3nnnnn3)C2=O)c2ccccc2-c2ccccc2-c2ccccc2-c2ccccc21                |generated        |689.7000000000003|4.693800000000004  |-12.6|-12.6     |-11.833333333333334|0.44547098762435183         |0.5918261769270564      |
-|AAHE|11 |CC1=CC(C(=O)Nc2nnnn2C2=CC=C(C(=O)Nc3nnnnn3)C2=O)c2ccccc2-c2ccccc2-c2ccccc2-c2ccccc21                |generated        |671.6810000000003|4.777000000000003  |-12.3|-12.3     |-11.844444444444445|0.4490997158054172          |0.607621009268795       |
-|ABPU|11 |Cc1ccc2c(c1)-c1ccccc1-c1ccccc1C(C)C=CC(C(=O)Nc1nnnn1N1CCC(C(=O)Nc3nnnnn3)C1=O)c1ccccc1-2            |generated        |704.7549999999999|4.476320000000002  |-12.3|-12.3     |-11.355555555555554|0.43659932565872095         |0.5651027938850817      |
-|ABSQ|12 |CC1C=CCCC(C(=O)Nc2nnnn2-c2nnnn2N2CCN(C(=O)Nc3nnnnn3)C2=O)c2ccccc21                                  |generated        |559.5150000000003|-0.5946999999999969|-12.3|-12.3     |-10.38888888888889 |0.45925312984410877         |0.6104500775995861      |
-|AABM|12 |CC=CCNc1nnnn1-c1ccccc1                                                                              |genetic_algorithm|215.26           |1.6503             |-12.3|-12.3     |-10.97777777777778 |0.19191909320789163         |0.21226142278773857     |
-|AABY|12 |CC1=CCC=C(C(=O)Nc2nnnn2N2CCN(C(=O)Nc3nnnnn3)C2=O)c2ccccc2-c2ccccc21                                 |generated        |551.5310000000002|1.7498999999999996 |-12.2|-12.2     |-11.677777777777777|0.43970133727850114         |0.5669781931464174      |
-|AATK|12 |CC1C=CCCC(C(=O)Nc2nnnn2N2CCN(C(=O)Nc3nnnnn3)C2=O)c2ccccc2-c2ccccc2-c2ccccc21                        |generated        |643.6720000000001|3.7636000000000016 |-12.2|-12.2     |-10.877777777777778|0.45306540731465034         |0.5918792295679334      |
-|ABXM|11 |C#CC1=CCCC(C(=O)Nc2nnnn2N2CCN(C(=O)Nc3nnnnn3)C2=O)c2ccccc2-c2ccccc2-c2ccccc21                       |generated        |639.6400000000002|3.1205000000000025 |-12.2|-12.2     |-11.5              |0.46206146930756264         |0.6192946058091287      |
-|AAXS|12 |Cc1ccc(-n2nnnc2NC(=O)C2C=CC(C)c3ccccc3-c3ccccc3NC2=O)c(=O)n1C(=O)Nc1nnnnn1                          |generated        |605.5790000000002|1.7213199999999989 |-12.1|-12.1     |-11.399999999999999|0.4618841020546573          |0.6360332294911735      |
-|AACW|12 |CC1C=CCCC(C(=O)Nc2nnnn2C2=CC=C(C(=O)Nc3nnnnn3)C2=O)c2ccccc2-c2ccccc2-c2ccccc21                      |generated        |637.6640000000002|4.146600000000002  |-12.1|-12.1     |-11.533333333333333|0.44573238812562777         |0.5976116303219107      |
-|AABM|12 |CC=CCNc1nnnn1-c1ccccc1                                                                              |genetic_algorithm|215.26           |1.6503             |-12.3|-6.7      |-5.7555555555555555|0.19191909320789163         |0.21226142278773857     |
+Table below shows the first 30 molecules obtained in generation 17: 
 
+
+|id  |gen|smile                                                                                                                                                   |source           |weight            |logp              |score|score_best|score_avg          |similarity_to_hiv_inhibitors|similarity_to_remdesivir|
+|----|---|--------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|------------------|------------------|-----|----------|-------------------|----------------------------|------------------------|
+|AAAQ|17 |FC#Cc1ccccn1                                                                                                                                            |genetic_algorithm|121.11399999999996|1.3601            |-16.6|-16.6     |-16.35             |0.07689491501455571         |0.07498500299940011     |
+|AAAY|17 |CC#CC#CC#CC#CC#CC#CC#CC(=O)NC1=CCCC=C1                                                                                                                  |genetic_algorithm|305.33600000000007|1.3802            |-14.7|-14.7     |-12.850000000000001|0.12670192716889236         |0.13097345132743363     |
+|AAAK|17 |CC#CC#CC#CC#CC#CC=CC                                                                                                                                    |genetic_algorithm|176.218           |1.5994000000000002|-13.5|-13.5     |-11.933333333333332|0.024906064435589608        |0.02425712553062462     |
+|AAAJ|17 |CC#CC#CC#CC#CC#CC#CC#CC#CC#CC#CC#CC#CC#CC#CC#CC#CC#CC#CC#CC#CC#CC#CC#CC#CC#CC#CC#CC(=O)C#CC#CC#CC#CC(=O)C#CC#CC#CC#CC#CC#CC#CC#CC(=O)C1NC(C)(C)c2ccccc21|genetic_algorithm|1182.1359999999988|1.4258000000000008|-13.4|-13.4     |-11.155555555555557|0.31070221013289756         |0.32                    |
+|ABQA|12 |CC1C=CC=C(C(=O)Nc2nnnn2N2CCN(C(=O)Nc3nnnnn3)C2=O)c2ccccc2C2=CC=C(C(=O)Nc3nnnnn3)C2c2ccccc2-c2ccccc21                                                    |generated        |815.7789999999997 |2.3371000000000013|-13.3|-13.3     |-12.377777777777778|0.4879430685740983          |0.6809908998988877      |
+|AAXQ|16 |Cc1ccc(C(=O)Nc2nnnn2N2C=NN=NN2N2CCN(C(=O)Nc3nnnnn3)C2=O)c2ccccc2c2ccccc2c2ccccc12                                                                       |generated        |696.6560000000003 |3.156620000000001 |-13.2|-13.2     |-12.477777777777778|0.43951490677916066         |0.6015625               |
+|AANY|12 |CC1CCC(C(=O)Nc2nnnn2N2CCN(C(=O)Nc3nnnnn3)C2=O)c2ccccc2-c2ccccc2-c2ccccc2-c2ccccc21                                                                      |generated        |693.7320000000002 |4.874400000000004 |-13.1|-13.1     |-11.988888888888889|0.44936439807407236         |0.5851619644723093      |
+|ABZK|16 |CC1=CC=C(C(=O)Nc2nnnn2N2C=NN=NN2N2CCN(C(=O)Nc3nnnnn3)C2=O)c2ccc(C#N)cc2-c2ccccc21                                                                       |generated        |645.5680000000001 |0.9895799999999996|-13.1|-13.1     |-11.355555555555554|0.47176375543293386         |0.6702508960573477      |
+|ABOS|16 |CC1=CC=CCCC(C(=O)Nc2nnnn2N2C=NN=NN2N2CCN(C(=O)Nc3nnnnn3)C2=O)c2ccccc2-c2ccccc21                                                                         |generated        |662.6390000000002 |2.1545            |-13.1|-13.1     |-11.922222222222222|0.46726537098984033         |0.661025641025641       |
+|ABCA|16 |CC1CCCC(C(=O)Nc2nnnn2N2C=NN=NN2N2C=NN=NN2N2CCN(C(=O)Nc3nnnnn3)C2=O)c2ccccc2-c2ccccc21                                                                   |generated        |721.671           |1.4467000000000014|-13.1|-13.1     |-12.4              |0.4741124763967932          |0.6841294298921418      |
+|ABFU|12 |CC1C=CCCC(C(=O)Nc2nnnn2N2CCN(C(=O)Nc3nnnnn3)C2=O)c2ccccc2-c2ccccc2-c2ccccc2C1=O                                                                         |generated        |671.6820000000001 |3.4789000000000017|-13.0|-13.0     |-12.211111111111112|0.45617840012510985         |0.6038421599169262      |
+|ABLZ|13 |CC1C=CC(C(=O)Nc2nnnn2N2NCN(C(=O)Nc3nnnnn3)C2=O)c2ccccc2-c2ccccc2-c2ccccc2-c2ccccc21                                                                     |generated        |692.7040000000003 |4.112500000000004 |-12.8|-12.8     |-12.088888888888889|0.44184419022206417         |0.5915049816465653      |
+|ABAE|13 |CC1C=CCCCC(C(=O)Nc2nnnn2N2CCN(C(=O)Nc3nnnnn3)C2=O)c2ccccc2-c2ccccc2-c2ccccc21                                                                           |generated        |657.6990000000002 |4.1537000000000015|-12.8|-12.8     |-11.622222222222224|0.45377444668594796         |0.5939614783966684      |
+|AAPM|11 |CC1C=CC(C(=O)Nc2nnnn2-c2ccccc2C2=CC=C(C(=O)Nc3nnnnn3)C2=O)c2ccccc2-c2ccccc21                                                                            |generated        |609.6100000000002 |3.2311000000000005|-12.8|-12.8     |-11.61111111111111 |0.46226260431847693         |0.6194144838212635      |
+|ABNI|13 |CC1C=CCCC(C(=O)Nc2nnnn2N2CCC(C(=O)Nc3nnnnn3)C2=O)c2ccccc2-c2ccccc2-c2ccccc2-c2ccccc21                                                                   |generated        |718.7820000000003 |4.948100000000005 |-12.8|-12.8     |-11.433333333333334|0.4445354793158235          |0.580168776371308       |
+|ABZM|16 |CC1=CCCC(C(=O)Nc2nnnn2-c2ccccc2C2=CC=C(C(=O)Nc3nnnnn3)C2=O)c2ccccc21                                                                                    |generated        |547.5390000000003 |2.0878999999999994|-12.7|-12.7     |-11.444444444444445|0.44955660408356624         |0.6082901554404145      |
+|ABGM|12 |CC1C=CC(C(=O)Nc2nnnn2N2CCN(C(=O)Nc3nnnnn3)C2=O)C(=O)Nc2ccccc2-c2ccccc2-c2ccccc21                                                                        |generated        |658.6430000000001 |2.454500000000001 |-12.7|-12.7     |-11.655555555555555|0.4561191762584125          |0.6072727272727273      |
+|AAWC|17 |CC1=CC=CCC(C(=O)Nc2nnnn2N2C=NN=NN2N2C=NN=NN2N2C=NN=NN2C2=CC=C(OC(=O)Nc3nnnnn3)C2=O)c2ccccc21                                                            |generated        |748.6129999999997 |0.3281000000000001|-12.7|-12.7     |-11.933333333333334|0.49362413822901213         |0.7112569409389198      |
+|AAUI|13 |CC1C=CC(C(=O)Nc2nnnn2N2CCN(C(=O)Nc3nnnnn3)C2=O)C(=O)Oc2ccccc2-c2ccccc2-c2ccccc21                                                                        |generated        |659.6270000000002 |2.4214            |-12.7|-12.7     |-11.899999999999999|0.4608544108295027          |0.6188992731048806      |
+|AAGI|16 |CC1=CC=C(C(=O)Nc2nnnn2N2C=NN=NN2N2C=NN=NN2N2CCN(C(=O)Nc3nnnnn3)C2=O)c2ccccc2-c2ccccc21                                                                  |generated        |703.6120000000002 |0.8760000000000014|-12.7|-12.7     |-12.322222222222223|0.4807775998551819          |0.7000510986203372      |
+|AAZC|16 |CC1C=CC(C(=O)Nc2nnnn2N2C=NN=NN2N2C=NN=NN2N2CCN(C(=O)Nc3nnnnn3)C2=O)c2ccccc2-c2ccccc21                                                                   |generated        |705.6280000000003 |0.8326000000000021|-12.7|-12.7     |-12.18888888888889 |0.47718799178901616         |0.6881390593047034      |
+|AAIW|12 |CC1C=CCC(C(=O)Nc2nnnn2-c2ccccc2C2=CC=C(C(=O)Nc3nnnnn3)C2=O)c2ccccc21                                                                                    |generated        |547.5390000000003 |1.954199999999999 |-12.7|-12.7     |-11.488888888888889|0.44631758041361463         |0.5996892801657172      |
+|ABSS|16 |CC1=CC=C(C(=O)Nc2nnnn2N2C=NN=NN2N2CCN(C(=O)Nc3nnnnn3)C2=O)c2ccccc2-c2ccccc21                                                                            |generated        |620.5580000000002 |1.1178999999999992|-12.6|-12.6     |-11.144444444444446|0.46636740545499955         |0.6589625064201335      |
+|ABMV|13 |CC1C=CC=CC(C(=O)Nc2nnnn2N2CCN(C(=O)Nc3nnnnn3)C2=O)c2ccccc2-c2ccccc2-c2ccccc21                                                                           |generated        |641.6560000000002 |3.5396000000000027|-12.6|-12.6     |-12.166666666666666|0.4416129568345467          |0.576722338204593       |
+|ABZM|12 |CC1=CCCC(NC(=O)c2nnnn2N2CCN(C(=O)Nc3nnnnn3)C2=O)c2ccccc2-c2ccccc2-c2ccccc2-c2ccccc21                                                                    |generated        |705.7430000000003 |4.9230000000000045|-12.6|-12.6     |-11.899999999999999|0.46253913284608356         |0.6176470588235294      |
+|AALZ|12 |CC1=CC=C(C(=O)Nc2nnnn2N2CCN(C(=O)Nc3nnnnn3)C2=O)c2ccccc2-c2ccccc2-c2ccccc2-c2ccccc21                                                                    |generated        |689.7000000000003 |4.693800000000004 |-12.6|-12.6     |-11.833333333333334|0.44547098762435183         |0.5918261769270564      |
+|ABYL|16 |CC1CCCCCC(C(=O)Nc2nnnn2N2C=NN=NN2N2CCN(C(=O)Nc3nnnnn3)C2=O)c2ccccc2-c2ccccc21                                                                           |generated        |666.6710000000003 |2.4688000000000008|-12.6|-12.6     |-11.644444444444444|0.46021217025167            |0.6425619834710744      |
+|ABFA|12 |CC1=CC=CCCC(C(=O)Nc2nnnn2N2CCN(C(=O)Nc3nnnnn3)C2=O)c2ccccc2-c2ccccc2-c2ccccc21                                                                          |generated        |655.6830000000002 |4.063400000000003 |-12.6|-12.6     |-12.255555555555555|0.45622126578118544         |0.6059190031152648      |
+|AABE|17 |CC#CC#CC#CC#CC#CC#CC#CC#CC#CC#CC#CC(=O)C1=CC=CC1                                                                                                        |genetic_algorithm|372.3820000000002 |1.4991            |-12.5|-12.5     |-11.522222222222222|0.12588276549132502         |0.12418687167356594     |
+|ABLA|16 |CC1=CC(C(=O)Nc2nnnn2-c2ccccc2C2=CC=C(C(=O)Nc3nnnnn3)C2=O)c2ccccc21                                                                                      |generated        |519.4850000000001 |1.307699999999999 |-12.5|-12.5     |-10.766666666666667|0.4501774430041082          |0.6003086419753086      |
+
+<p align="center">Table 2.1 shows the first 30 molecules obtained in generation 17. We are proud to see that the first 4 of the molecules is comes from local-GA which proves that our hypothesis is correct. </p>
 </br>
 
-## Below shows some data visualization of the generation from gen 0 to gen 12:
+
+## Below shows some data visualization of the generation from gen 0 to gen 17:
 
 <div align="center">
   <img width="50%" src="./img/line_plot_score.svg">
 </div>
 <p align="center">
-  The score converge from -8.5 in generation 0 to -10 and below which is a good sign.
+  Figure 1 shows the score converge from -8.5 in generation 0 to -10 and below which is a good sign.
+</p>
+
+<div align="center">
+  <img width="50%" src="./img/lm_plot_score_edible.svg">
+</div>
+<p align="center">
+  Figure 2 shows the score is starting to converge for both the edible is true (logP < 5) and edible is false (logP > 5). Here, we will be focus on the edible is true.
 </p>
 
 
