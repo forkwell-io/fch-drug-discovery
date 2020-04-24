@@ -275,6 +275,13 @@ Table below shows the first 30 molecules obtained in generation 17:
   Figure 2 shows the score is starting to converge for both the edible is true (logP < 5) and edible is false (logP > 5). Here, we will be focus on the edible is true.
 </p>
 
+<div align="center">
+  <img width="50%" src="./img/violin_plot_score.svg">
+</div>
+<p align="center">
+  Figure 2 shows the violin plot from generation 1 to generation 17.
+</p>
+
 
 
 # Side Notes & Challenges Faced
