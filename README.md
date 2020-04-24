@@ -282,6 +282,20 @@ Table below shows the first 30 molecules obtained in generation 17:
   Figure 3 shows the violin plot from generation 1 to generation 17.
 </p>
 
+<div align="center">
+  <img width="100%" src="./img/box_plot_score.svg">
+</div>
+<p align="center">
+  Figure 5 shows the Box plot of the score from generation 1 to generation 17.
+</p>
+
+<div align="center">
+  <img width="50%" src="./img/kde_joinplot_score.svg">
+</div>
+<p align="center">
+  Figure 4 shows the KDE plot from generation 1 to generation 17.
+</p>
+
 
 
 # Side Notes & Challenges Faced
