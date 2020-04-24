@@ -210,6 +210,8 @@ While each Global-Generation < n,
 1. The results are interpreted and the process starts from `7` until a satisfactory result is achived or when the tester decides to stop.
 
 
+<img width="100%" height="auto" src="./img/slides/Slide11.png">
+
 # Findings and Analysis
 
 At Generations 12, we can see 24 molecules that show some good results:
