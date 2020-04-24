@@ -286,14 +286,14 @@ Table below shows the first 30 molecules obtained in generation 17:
   <img width="100%" src="./img/box_plot_score.svg">
 </div>
 <p align="center">
-  Figure 5 shows the Box plot of the score from generation 1 to generation 17.
+  Figure 4 shows the Box plot of the score from generation 1 to generation 17.
 </p>
 
 <div align="center">
   <img width="50%" src="./img/kde_joinplot_score.svg">
 </div>
 <p align="center">
-  Figure 4 shows the KDE plot from generation 1 to generation 17.
+  Figure 5 shows the KDE plot from generation 1 to generation 17.
 </p>
 
 
