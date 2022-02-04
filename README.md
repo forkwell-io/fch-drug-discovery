@@ -72,8 +72,7 @@ Alvin Wong Guan Sheng <br>
 ## Challenges
 - pyrx takes so long to check even one DTBA
 - the sdf files generated using rdkit is different from the ones from online, yielding different results
-- no domain knowledge XD
-- all the works are not done on local machine, so we might write wrongly the file paths in our submission
+- lacking domain knowledge
 
 ## References
 - https://arxiv.org/abs/1811.00761
